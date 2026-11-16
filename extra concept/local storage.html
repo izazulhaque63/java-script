@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>local storage all concept</title>
+</head>
+<body>
+    <script>
+       /* JavaScript me localStorage browser ke andar data ko save karke rakhne ke kaam aata hai.
+
+Sabse simple example:
+
+localStorage.setItem("name", "Aman");
+
+Isse browser me "Aman" save ho jayega.
+
+Agar page refresh bhi kar do, data normally delete nahi hota.
+
+Simple example
+localStorage.setItem("name", "Rahul");
+
+let userName = localStorage.getItem("name");
+
+console.log(userName);
+
+Output:
+
+Rahul
+
+Yahan:
+
+localStorage.setItem()
+
+ka matlab hai data save karna.
+
+Aur:
+
+localStorage.getItem()
+
+ka matlab hai saved data nikalna.
+
+localStorage ki zarurat kyu padti hai?
+
+Maan lo tum shopping website bana rahe ho.
+
+User ne cart me 3 items add kiye.
+
+Agar tum sirf JavaScript variable use karo:
+
+let cartQuantity = 3;
+
+aur page refresh kar do, to variable dobara reset ho sakta hai.
+
+Lekin agar hum likhen:
+
+localStorage.setItem("cartQuantity", 3);
+
+to browser me value save rahegi.
+
+Baad me:
+
+let cartQuantity = localStorage.getItem("cartQuantity");
+
+console.log(cartQuantity);
+
+Output:
+
+3
+localStorage ke important methods
+localStorage.setItem("key", "value");
+
+Data save karta hai.
+
+localStorage.getItem("key");
+
+Data read karta hai.
+
+localStorage.removeItem("key");
+
+Ek particular data delete karta hai.
+
+localStorage.clear();
+
+Us website ka localStorage ka sara data clear karta hai.
+
+Example:
+
+localStorage.setItem("name", "Aman");
+
+localStorage.removeItem("name");
+
+Ab:
+
+console.log(localStorage.getItem("name"));
+
+Output:
+
+null
+Sabse important baat: localStorage string me data rakhta hai
+
+Agar tum likho:
+
+localStorage.setItem("age", 20);
+
+Browser technically ise string ki tarah store karta hai:
+
+"20"
+
+Isi wajah se objects aur arrays ke saath JSON ka use hota hai.
+
+Maan lo:
+
+let student = {
+  name: "Aman",
+  age: 20
+};
+
+Direct object store karna sahi approach nahi hai.
+
+Pehle:
+
+let studentJSON = JSON.stringify(student);
+
+Phir:
+
+localStorage.setItem("student", studentJSON);
+
+Ab nikalte waqt:
+
+let data = localStorage.getItem("student");
+
+let studentObject = JSON.parse(data);
+
+console.log(studentObject.name);
+
+Output:
+
+Aman
+
+Isliye JSON aur localStorage ka strong connection hai:
+
+JavaScript Object
+       ↓
+JSON.stringify()
+       ↓
+String
+       ↓
+localStorage
+
+Aur data wapas nikalte waqt:
+
+localStorage
+      ↓
+String
+      ↓
+JSON.parse()
+      ↓
+JavaScript Object
+Real-life uses
+
+localStorage ka use chhote browser-side data ke liye ho sakta hai, jaise:
+
+Shopping cart
+Dark mode/light mode preference
+User ki language preference
+Form ka temporary data
+Quiz score
+Recently viewed items
+
+Lekin password, OTP, bank details ya sensitive information localStorage me store nahi karni chahiye.
+
+Ab ek basic question
+
+Agar main likhun:
+
+localStorage.setItem("city", "Delhi");
+
+to "city" kya hai?
+
+A. Value
+B. Key
+C. Function
+
+Aur "Delhi" kya hai?
+
+A. Key
+B. Value
+C. Variable */
+    </script>
+</body>
+</html>

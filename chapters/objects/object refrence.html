@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>object refrence in detail</title>
+</head>
+<body>
+    <script>
+        /*JavaScript me object reference bahut important concept hai. Simple language me:
+
+Object variable ke andar poora object directly store nahi hota. Variable me us object ka reference, yani uski location ka link, store hota hai.
+
+Example:
+
+let person = {
+  name: "Rahul",
+  age: 20
+};
+
+Beginner ke liye isko aise imagine karo:
+
+person
+  |
+  | reference
+  ↓
+Memory me object
+{
+  name: "Rahul",
+  age: 20
+}
+
+person ke paas object tak pahunchne ka reference hai.
+
+Sabse important example
+let person1 = {
+  name: "Rahul"
+};
+
+let person2 = person1;
+
+Ab person2 = person1 ka matlab object ki alag copy banana nahi hai.
+
+Dono same object ko reference kar rahe hain:
+
+person1 ─────┐
+             ↓
+          { name: "Rahul" }
+             ↑
+person2 ─────┘
+
+Ab:
+
+person2.name = "Aman";
+
+console.log(person1.name);
+
+Output:
+
+Aman
+
+Tum soch sakte ho:
+
+Maine change person2 me kiya tha, person1 kaise change ho gaya?
+
+Because:
+
+person1
+
+aur
+
+person2
+
+same object ko point kar rahe hain.
+
+Primitive me aisa nahi hota
+
+Compare karo:
+
+let a = 10;
+let b = a;
+
+b = 20;
+
+console.log(a);
+console.log(b);
+
+Output:
+
+10
+20
+
+Kyun?
+
+Primitive values me value copy hoti hai.
+
+a → 10
+
+b → 10
+
+Phir:
+
+b = 20;
+
+to:
+
+a → 10
+b → 20
+
+a par koi effect nahi.
+
+Object me reference copy hota hai
+let obj1 = {
+  value: 10
+};
+
+let obj2 = obj1;
+
+obj2.value = 50;
+
+console.log(obj1.value);
+
+Output:
+
+50
+
+Because:
+
+obj1 ───┐
+        ↓
+     { value: 50 }
+        ↑
+obj2 ───┘
+
+Dono variables same object ke reference ko hold kar rahe hain.
+
+Ek real-life example
+
+Socho ek ghar hai:
+
+🏠 House
+
+Tumhare aur tumhare friend ke paas usi ghar ka address hai.
+
+Tumhara paper → House No. 10
+Friend paper  → House No. 10
+
+Agar friend ghar ka door red paint kar deta hai, tum jab ghar dekhoge to door bhi red hi milega.
+
+Do addresses nahi badle. Actual same house change hua hai.
+
+Object reference bhi almost isi idea jaisa hai.
+
+Object comparison me bhi reference important hai
+
+Ye dekho:
+
+let a = {
+  name: "Rahul"
+};
+
+let b = {
+  name: "Rahul"
+};
+
+console.log(a === b);
+
+Output:
+
+false
+
+Tum sochoge dono objects same dikh rahe hain:
+
+{ name: "Rahul" }
+
+Lekin ye memory me do alag objects hain.
+
+a → { name: "Rahul" }   Object 1
+
+b → { name: "Rahul" }   Object 2
+
+Isliye:
+
+a === b
+
+false
+
+JavaScript yahan unki properties compare nahi kar raha. Wo check kar raha hai:
+
+Kya dono variables same object ko reference kar rahe hain?
+
+Answer: No.
+
+Lekin ye dekho
+let a = {
+  name: "Rahul"
+};
+
+let b = a;
+
+console.log(a === b);
+
+Output:
+
+true
+
+Because:
+
+a ───┐
+     ↓
+  { name: "Rahul" }
+     ↑
+b ───┘
+
+Dono same object ko point kar rahe hain.
+
+Ek important difference
+Case 1
+let a = {
+  age: 20
+};
+
+let b = a;
+
+b.age = 30;
+
+console.log(a.age);
+
+Output:
+
+30
+
+Same object modify hua.
+
+Case 2
+let a = {
+  age: 20
+};
+
+let b = a;
+
+b = {
+  age: 50
+};
+
+console.log(a.age);
+
+Output:
+
+20
+
+Yahan kya hua?
+
+Initially:
+
+a ───┐
+     ↓
+   { age: 20 }
+     ↑
+b ───┘
+
+Phir:
+
+b = {
+  age: 50
+};
+
+Ab b ko ek new object assign kar diya:
+
+a → { age: 20 }
+
+b → { age: 50 }
+
+Isliye a change nahi hua.
+
+Golden rule
+
+Ye line yaad rakho:
+
+Primitive copy karoge → value copy hoti hai.
+Object copy karoge → reference copy hota hai.
+
+Example:
+
+let x = 10;
+let y = x;
+
+Value copy.
+
+Lekin:
+
+let obj1 = { x: 10 };
+let obj2 = obj1;
+
+Reference copy.
+
+Quick test
+Q1
+let a = {
+  name: "Ali"
+};
+
+let b = a;
+
+b.name = "Ahmed";
+
+console.log(a.name);
+
+Output kya hoga?
+
+A. Ali
+B. Ahmed
+C. undefined
+
+Q2
+let a = { age: 20 };
+let b = { age: 20 };
+
+console.log(a === b);
+
+A. true
+B. false
+
+Q3
+let a = { age: 20 };
+let b = a;
+
+console.log(a === b);
+
+A. true
+B. false
+
+Q4
+let x = 10;
+let y = x;
+
+y = 50;
+
+console.log(x);
+
+A. 10
+B. 50 */
+    </script>
+</body>
+</html>

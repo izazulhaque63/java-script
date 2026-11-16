@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>jason all concept in detal</title>
+</head>
+<body>
+    <script>
+      /*  JSON ka full form hai JavaScript Object Notation.
+
+1. JSON kya hota hai?
+
+JSON ek data format hai.
+
+Simple language me:
+
+JSON data ko ek proper structured format me likhne ka tarika hai, jise humans bhi easily padh sakte hain aur computers bhi easily samajh sakte hain.
+
+Example:
+
+{
+  "name": "Rahul",
+  "age": 22,
+  "city": "Delhi"
+}
+
+Yahan humne ek person ka data JSON format me rakha hai.
+
+Isme:
+
+"name"  → key
+"Rahul" → value
+
+Isi tarah:
+
+"age" → key
+22    → value
+2. JSON JavaScript Object jaisa dikhta hai
+
+JavaScript Object:
+
+let student = {
+  name: "Rahul",
+  age: 22,
+  city: "Delhi"
+};
+
+JSON:
+
+{
+  "name": "Rahul",
+  "age": 22,
+  "city": "Delhi"
+}
+
+Dono almost same lag rahe hain, lekin same nahi hain.
+
+Sabse important difference:
+
+JavaScript Object me:
+
+name: "Rahul"
+
+JSON me:
+
+"name": "Rahul"
+
+JSON me keys ko double quotes " " me likhna zaroori hota hai.
+
+3. JSON ka use kahan hota hai?
+
+JSON mainly data transfer ke liye use hota hai.
+
+Maan lo tumhari website server se student ki information mangti hai.
+
+Server kuch aisa JSON bhej sakta hai:
+
+{
+  "name": "Aman",
+  "age": 21,
+  "course": "BCA"
+}
+
+JavaScript is data ko receive karke webpage par dikha sakta hai.
+
+Flow roughly:
+
+Server
+  ↓
+JSON Data
+  ↓
+JavaScript
+  ↓
+Website
+
+Example:
+
+Weather App
+    ↓
+Weather API
+    ↓
+JSON data
+    ↓
+JavaScript
+    ↓
+Temperature website par show
+4. Real-life example
+
+Maan lo tum Amazon type website bana rahe ho.
+
+Product ka data:
+
+{
+  "productName": "iPhone",
+  "price": 70000,
+  "inStock": true
+}
+
+Server ye JSON website ko bhej sakta hai.
+
+JavaScript fir is information ko screen par show karega:
+
+Product: iPhone
+Price: ₹70000
+Available: Yes
+5. JSON me kis type ki values aa sakti hain?
+
+JSON me mainly ye values allowed hain:
+
+String
+Number
+Boolean
+Array
+Object
+null
+
+Example:
+
+{
+  "name": "Rahul",
+  "age": 22,
+  "isStudent": true,
+  "subjects": ["HTML", "CSS", "JavaScript"],
+  "address": {
+    "city": "Delhi",
+    "pin": 110001
+  },
+  "middleName": null
+}
+
+Yahan different data types hain.
+
+String
+"name": "Rahul"
+Number
+"age": 22
+Boolean
+"isStudent": true
+Array
+"subjects": ["HTML", "CSS", "JavaScript"]
+Object
+"address": {
+  "city": "Delhi"
+}
+null
+"middleName": null
+6. Sabse important concept: JSON string hota hai
+
+Ye part dhyan se samajhna.
+
+JavaScript Object:
+
+let user = {
+  name: "Rahul",
+  age: 22
+};
+
+Ye actual JavaScript object hai.
+
+Lekin JSON jab server se aata hai to aksar text/string format me hota hai:
+
+let data = '{"name":"Rahul","age":22}';
+
+Notice:
+
+'{"name":"Rahul","age":22}'
+
+Bahari ' ' ki wajah se ye string hai.
+
+Agar hum karenge:
+
+console.log(typeof data);
+
+Output:
+
+string
+
+Ab JavaScript directly:
+
+data.name
+
+se name nahi nikaal sakta.
+
+Pehle JSON string ko JavaScript Object banana padega.
+
+Iske liye use hota hai:
+
+JSON.parse()
+7. JSON.parse() kya karta hai?
+
+JSON.parse():
+
+JSON string ko JavaScript Object me convert karta hai.
+
+Example:
+
+let data = '{"name":"Rahul","age":22}';
+
+let user = JSON.parse(data);
+
+console.log(user);
+
+Ab user JavaScript object ban gaya.
+
+Hum likh sakte hain:
+
+console.log(user.name);
+
+Output:
+
+Rahul
+
+Aur:
+
+console.log(user.age);
+
+Output:
+
+22
+
+Flow:
+
+JSON String
+   ↓
+JSON.parse()
+   ↓
+JavaScript Object
+
+Example:
+
+let jsonData = '{"name":"Aman","age":20}';
+
+let student = JSON.parse(jsonData);
+
+console.log(student.name);
+
+Output:
+
+Aman
+8. JSON.stringify() kya karta hai?
+
+Ab iska opposite samjho.
+
+Agar JavaScript Object ko JSON string banana ho to use karte hain:
+
+JSON.stringify()
+
+Example:
+
+let student = {
+  name: "Rahul",
+  age: 22
+};
+
+let jsonData = JSON.stringify(student);
+
+console.log(jsonData);
+
+Output:
+
+{"name":"Rahul","age":22}
+
+Aur:
+
+console.log(typeof jsonData);
+
+Output:
+
+string
+
+Flow:
+
+JavaScript Object
+       ↓
+JSON.stringify()
+       ↓
+JSON String
+9. parse aur stringify ko ek saath samjho
+
+Ye JSON ka sabse important part hai:
+
+JSON String
+     ↓
+JSON.parse()
+     ↓
+JavaScript Object
+
+Aur ulta:
+
+JavaScript Object
+     ↓
+JSON.stringify()
+     ↓
+JSON String
+
+Short trick:
+
+parse = JSON → Object
+
+stringify = Object → JSON string
+
+10. Complete example
+let user = {
+  name: "Aman",
+  age: 21
+};
+
+let jsonData = JSON.stringify(user);
+
+console.log(jsonData);
+
+let newUser = JSON.parse(jsonData);
+
+console.log(newUser.name);
+
+Step-by-step:
+
+Pehle:
+
+let user = {
+  name: "Aman",
+  age: 21
+};
+
+Object bana.
+
+Phir:
+
+JSON.stringify(user)
+
+Object JSON string bana:
+
+{"name":"Aman","age":21}
+
+Phir:
+
+JSON.parse(jsonData)
+
+JSON string wapas object bana.
+
+Ab:
+
+newUser.name
+
+Output:
+
+Aman
+11. JSON Object nahi hai — ye confusion bahut common hai
+
+Beginner ko ye dono same lagte hain:
+
+let a = {
+  name: "Rahul"
+};
+
+Aur:
+
+let b = '{"name":"Rahul"}';
+
+Lekin:
+
+console.log(typeof a);
+
+Output:
+
+object
+
+Aur:
+
+console.log(typeof b);
+
+Output:
+
+string
+
+Isliye yaad rakho:
+
+{ name: "Rahul" }
+       ↓
+JavaScript Object
+
+Lekin:
+
+'{"name":"Rahul"}'
+       ↓
+JSON String
+12. JSON ka API me use
+
+Aage jab tum API padhoge, JSON bahut use hoga.
+
+Example API se response:
+
+{
+  "name": "Virat",
+  "country": "India",
+  "age": 37
+}
+
+JavaScript us data ko lekar website me use karega.
+
+Jaise:
+
+console.log(data.name);
+
+Ya webpage par:
+
+document.querySelector("h1").innerText = data.name;
+Ek line me poora JSON
+
+JSON ek standard data format hai jo mainly applications/server ke beech data ko store aur transfer karne ke liye use hota hai.
+
+Aur do functions sabse important:
+
+JSON.parse()
+
+JSON string → JavaScript Object
+
+JSON.stringify()
+
+JavaScript Object → JSON string
+
+Ab 3 basic questions:
+
+Q1. JSON ka full form kya hai?
+
+A. Java Source Object Network
+B. JavaScript Object Notation
+C. JavaScript Online Number
+
+Q2. Is code ka typeof kya hoga?
+
+let data = '{"name":"Aman"}';
+
+console.log(typeof data);
+
+A. object
+B. string
+C. number
+
+Q3. JSON string ko JavaScript Object me convert karne ke liye kya use karenge?
+
+A. JSON.stringify()
+B. JSON.parse()
+C. JSON.convert()
+
+Bas 1-?, 2-?, 3-? me answer do. Uske baad main tumhe JSON.parse() aur JSON.stringify() practical code ke saath ekdum basic se practice karwaunga. */
+    </script>
+</body>
+</html>

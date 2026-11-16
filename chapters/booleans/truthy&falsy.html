@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>truthy and falsy in detail</title>
+</head>
+<body>
+    <script>
+       /* Bilkul basic se samjhte hain.
+
+JavaScript me Truthy aur Falsy kya hota hai?
+
+JavaScript me if condition ko finally decide karna hota hai:
+
+true
+
+ya
+
+false
+
+Lekin kabhi-kabhi hum condition ke andar directly koi value likh dete hain:
+
+if ("Hello") {
+  console.log("Run hua");
+}
+
+Yahan "Hello" khud true nahi hai. Ye ek string hai.
+
+JavaScript is value ko temporarily Boolean me convert karke check karta hai.
+
+Agar value true jaisi behave kare → Truthy
+Agar value false jaisi behave kare → Falsy
+1. Sabse pehle normal true aur false
+if (true) {
+  console.log("Hello");
+}
+
+Output:
+
+Hello
+
+Lekin:
+
+if (false) {
+  console.log("Hello");
+}
+
+Kuch output nahi aayega.
+
+Ab isi concept ko JavaScript dusri values ke saath bhi use karta hai.
+
+2. Falsy Values
+
+Falsy matlab aisi values jo condition ke andar false ki tarah behave karti hain.
+
+JavaScript ki important falsy values:
+
+false
+0
+""
+null
+undefined
+NaN
+
+Inhe yaad kar lo.
+
+Example: 0
+if (0) {
+  console.log("Yes");
+} else {
+  console.log("No");
+}
+
+Output:
+
+No
+
+Kyun?
+
+Because:
+
+0
+
+Falsy value hai.
+
+Empty string ""
+if ("") {
+  console.log("Yes");
+} else {
+  console.log("No");
+}
+
+Output:
+
+No
+
+Empty string yani string hai, lekin uske andar kuch nahi hai.
+
+""
+
+Falsy hai.
+
+null
+if (null) {
+  console.log("Yes");
+} else {
+  console.log("No");
+}
+
+Output:
+
+No
+
+Because null falsy hai.
+
+undefined
+let name;
+
+if (name) {
+  console.log("Name available");
+} else {
+  console.log("Name not available");
+}
+
+Output:
+
+Name not available
+
+Kyunki:
+
+let name;
+
+me value assign nahi ki gayi, isliye:
+
+name === undefined
+
+Aur undefined falsy hai.
+
+3. Truthy Values
+
+Falsy values ko chhodkar almost saari values truthy hoti hain.
+
+Example:
+
+"Hello"
+"false"
+"0"
+1
+-1
+100
+[]
+{}
+
+Ye sab truthy hain.
+
+Example
+if ("Hello") {
+  console.log("Truthy");
+} else {
+  console.log("Falsy");
+}
+
+Output:
+
+Truthy
+
+Because non-empty string truthy hoti hai.
+
+4. Bahut important confusion: 0 vs "0"
+
+Ye interview aur exam dono ke liye important hai.
+
+0
+
+Falsy hai.
+
+Lekin:
+
+"0"
+
+Truthy hai.
+
+Kyun?
+
+Because "0" ek non-empty string hai.
+
+Example:
+
+if ("0") {
+  console.log("Yes");
+}
+
+Output:
+
+Yes
+
+String ke andar kya likha hai usse farak nahi padta. Agar string empty nahi hai, generally truthy hogi.
+
+Isi tarah:
+false
+
+Falsy hai.
+
+Lekin:
+
+"false"
+
+Truthy hai.
+
+Kyunki "false" ek non-empty string hai.
+
+5. Is table ko yaad rakho
+Value	Result
+false	Falsy
+0	Falsy
+""	Falsy
+null	Falsy
+undefined	Falsy
+NaN	Falsy
+"hello"	Truthy
+"0"	Truthy
+"false"	Truthy
+1	Truthy
+-1	Truthy
+[]	Truthy
+{}	Truthy
+6. Real-life use
+
+Maan lo user ka naam check karna hai:
+
+let username = "Imam";
+
+if (username) {
+  console.log("Username available");
+} else {
+  console.log("Please enter username");
+}
+
+Output:
+
+Username available
+
+Agar:
+
+let username = "";
+
+Then:
+
+if (username) {
+  console.log("Username available");
+} else {
+  console.log("Please enter username");
+}
+
+Output:
+
+Please enter username
+
+Because empty string falsy hai.
+
+Isliye truthy/falsy form validation me kaafi use hota hai.
+
+7. JavaScript internally kya karta hai?
+
+Ye:
+
+if ("Hello")
+
+roughly aise samjho:
+
+if (Boolean("Hello"))
+
+Check karo:
+
+console.log(Boolean("Hello"));
+
+Output:
+
+true
+
+Aur:
+
+console.log(Boolean(""));
+
+Output:
+
+false
+8. Kuch examples
+Example 1
+let age = 18;
+
+if (age) {
+  console.log("Truthy");
+}
+
+Output:
+
+Truthy
+
+Kyunki 18 truthy hai.
+
+Example 2
+let age = 0;
+
+if (age) {
+  console.log("Truthy");
+} else {
+  console.log("Falsy");
+}
+
+Output:
+
+Falsy
+Example 3
+let name = "Ali";
+
+if (name) {
+  console.log("Hello Ali");
+}
+
+Output:
+
+Hello Ali
+Ek simple rule
+
+Ye line yaad rakho:
+
+Empty / missing / zero type values mostly Falsy hoti hain, baaki almost sab Truthy.
+
+Ab 3 checking questions:
+
+Q1
+if ("") {
+  console.log("A");
+} else {
+  console.log("B");
+}
+
+Output kya hoga?
+
+A) A
+B) B
+
+Q2
+if ("false") {
+  console.log("A");
+} else {
+  console.log("B");
+}
+
+Output?
+
+A) A
+B) B
+
+Q3
+if (0) {
+  console.log("A");
+} else {
+  console.log("B");
+}
+
+A) A
+B) B
+
+Aap bas 1-?, 2-?, 3-? me answer do. Uske baad main truthy/falsy ko &&, || aur ! operator ke saath bilkul basic se samjhaunga. */
+    </script>
+</body>
+</html>

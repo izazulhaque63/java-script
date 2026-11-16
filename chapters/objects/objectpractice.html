@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>object practices</title>
+</head>
+<body>
+    <script>
+        //1. Object kya hota hai?
+
+//Object ek aisa container hai jisme hum ek hi jagah par multiple related information store kar sakte hain.
+
+//Example: maan lo hume ek student ki information store karni hai:
+
+/*let name = "Rahul";
+let age = 20;
+let city = "Delhi";*/ 
+
+//Ye alag-alag variables hain.
+
+
+
+/*let student = {
+    name: "masoom",
+    age: "20",
+    city: "noida",
+}
+console.log(student)*/ 
+
+
+//4. Object ki value kaise access karte hain?
+
+//Do main methods hain.
+
+//Method 1: Dot notation 
+
+/*let person = {
+    name: "masoom",
+    age: "23",
+    city: "delhi",
+    colloge: "unknown",
+}
+console.log(person.name)
+console.log(person.age)*/ 
+
+
+
+//Method 2: Bracket notation
+/*let person = {
+    name: "masoom",
+    age: "23",
+    city: "delhi",
+    colloge: "unknown",
+}
+console.log(person["name"]);
+console.log(person["age"]);*/ 
+
+
+
+ //5 Object ki value change kaise karte hain?
+
+/*let person = {
+    name: "masoom",
+    age: "23",
+    city: "delhi",
+    colloge: "unknown",
+}
+person.age = 22;
+console.log(person.name)
+console.log(person.age) */ 
+
+
+ 
+ //6. Object me new property kaise add karte hain?
+/*let person = {
+    name: "masoom",
+    age: "23",
+    colloge: "unknown",
+}
+person.city = "mumbai",
+console.log(person)*/ 
+
+
+
+
+//7. Property delete kaise karte hain?
+/*let person = {
+    name: "masoom",
+    age: "23",
+    city: "delhi",
+    colloge: "unknown",
+}
+delete person.colloge;
+console.log(person)*/ 
+
+
+
+//9. Nested Object kya hota hai?
+
+//Jab object ke andar object hota hai, use nested object bolte hain.
+/*let person = {
+    name: "masoom",
+    age: "23",
+    colloge: "unknown",
+    adress:{
+        city: "delhi",
+        town: "e block", 
+    }
+}
+console.log(person.adress.city)*/ 
+
+
+
+
+
+//8. Object ke andar different types ki values ho sakti hain
+
+//Object me sirf string ya number nahi, almost kuch bhi store kar sakte ho.
+
+/*let student = {
+  name: "Aman",
+  age: 20,
+  passed: true,
+  marks: [80, 90, 70],
+  address: {
+    city: "Delhi",
+    pin: 110001
+  }
+};
+console.log(student)*/ 
+
+
+//10. Object ke andar function
+
+//Object ke andar function bhi rakh sakte hain.
+
+
+/*let student = {
+    name: "masoom",
+    greet: function(){
+        console.log("hello");
+    }
+}
+student.greet()*/ 
+
+
+//11. this keyword object me
+
+//Object ke andar current object ki property access karne ke liye this use hota hai.
+
+/*let student = {
+    name: 'aditya',
+    greet: function(){
+        console.log("hello " + this.name);
+    }
+}
+student.greet()*/ 
+
+//3. Array
+
+//JavaScript me technically array bhi ek type ka object hai.
+
+//let fruits = ["apple","mango", "banana", ];
+//console.log(typeof fruits);
+
+
+
+
+//5. Date Object
+
+//Date/time ke liye:
+//let today = new Date();
+
+//console.log(today);
+
+
+
+
+//6. Constructor se Object
+
+//Object new Object() se bhi bana sakte hain:
+
+/* person = new Object()
+    person.name = "masoom",
+    person.age = "23",
+    person.colloge = "unknown"
+    console.log(person)*/ 
+    
+
+
+    </script>
+</body>
+</html>

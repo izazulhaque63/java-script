@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>scope detail</title>
+</head>
+<body>
+    <script>
+       /* Bilkul basic se samjhte hain.
+
+JavaScript me Scope kya hota hai?
+
+Scope ka simple matlab hai:
+
+Koi variable code ke kis-kis area me access/use kiya ja sakta hai.
+
+Example:
+
+let name = "Ali";
+
+console.log(name);
+
+Yahan name variable bahar banaya gaya hai, isliye hum use access kar pa rahe hain.
+
+Lekin:
+
+function test() {
+    let age = 20;
+}
+
+console.log(age);
+
+Yahan error aayega:
+
+ReferenceError: age is not defined
+
+Kyunki age sirf test() function ke andar available hai.
+
+Scope ki zarurat kyu hoti hai?
+
+Socho ek bade program me 100 variables hain.
+
+Agar har variable har jagah accessible hota, to same naam ke variables aapas me conflict kar sakte the.
+
+Scope decide karta hai:
+
+Variable kahan bana?
+        ↓
+Kahan tak accessible hai?
+        ↓
+Kahan use nahi kar sakte?
+JavaScript me mainly 4 types ke Scope samjho
+Global Scope
+Function Scope
+Block Scope
+Lexical Scope
+
+Ab ek-ek karke basic se.
+
+1. Global Scope
+
+Jab variable kisi function ya { } ke bahar declare hota hai, use generally Global Scope kehte hain.
+
+let name = "Rahul";
+
+function showName() {
+    console.log(name);
+}
+
+showName();
+
+console.log(name);
+
+Output:
+
+Rahul
+Rahul
+
+Kyun?
+
+name global variable hai.
+
+Isliye:
+
+Global area
+│
+├── name = "Rahul"
+│
+├── function ke andar → access ✅
+│
+└── function ke bahar → access ✅
+Example
+let age = 18;
+
+if (age >= 18) {
+    console.log(age);
+}
+
+Output:
+
+18
+
+age global hai, isliye if ke andar bhi mil gaya.
+
+2. Function Scope
+
+Jab variable function ke andar declare hota hai, to woh normally us function ke bahar access nahi hota.
+
+Example:
+
+function student() {
+    let name = "Aman";
+
+    console.log(name);
+}
+
+student();
+
+Output:
+
+Aman
+
+Lekin:
+
+function student() {
+    let name = "Aman";
+}
+
+console.log(name);
+
+Error:
+
+ReferenceError: name is not defined
+
+Kyunki:
+
+function student() {
+
+    let name = "Aman";
+        ↑
+        │
+    sirf yahan available
+
+}
+
+console.log(name);
+            ❌
+Function Scope me var bhi important hai
+
+var ko function ke andar declare karo:
+
+function test() {
+    var age = 20;
+
+    console.log(age);
+}
+
+test();
+
+Output:
+
+20
+
+Lekin:
+
+function test() {
+    var age = 20;
+}
+
+console.log(age);
+
+Error aayega.
+
+Isliye var function scoped hota hai.
+
+3. Block Scope
+
+Ye bahut important hai.
+
+JavaScript me:
+
+{
+}
+
+ko block bolte hain.
+
+Example:
+
+if (true) {
+
+}
+
+Ye { } ek block hai.
+
+Similarly:
+
+for (...) {
+
+}
+
+Ye bhi block hai.
+
+let aur const Block Scoped hote hain
+
+Example:
+
+if (true) {
+    let age = 20;
+
+    console.log(age);
+}
+
+Output:
+
+20
+
+Lekin:
+
+if (true) {
+    let age = 20;
+}
+
+console.log(age);
+
+Error:
+
+ReferenceError: age is not defined
+
+Kyunki age sirf { } ke andar available hai.
+
+Diagram:
+
+if (true) {
+
+    let age = 20;
+
+    console.log(age); ✅
+
+}
+
+console.log(age); ❌
+const bhi same hai
+if (true) {
+    const name = "Ali";
+
+    console.log(name);
+}
+
+Output:
+
+Ali
+
+Bahaar:
+
+console.log(name);
+
+❌ Error.
+
+Ab var, let, const ka important difference
+
+Ye interview aur coding dono ke liye bahut important hai.
+
+var block scoped nahi hota
+if (true) {
+    var age = 20;
+}
+
+console.log(age);
+
+Output:
+
+20
+
+Surprising lag sakta hai.
+
+Kyunki var block scope follow nahi karta.
+
+let block scoped hota hai
+if (true) {
+    let age = 20;
+}
+
+console.log(age);
+
+Error:
+
+age is not defined
+const bhi block scoped hai
+if (true) {
+    const age = 20;
+}
+
+console.log(age);
+
+Error.
+
+Isliye yaad rakho:
+
+Keyword	Function Scope	Block Scope
+var	✅	❌
+let	✅	✅
+const	✅	✅
+
+Beginner ke liye simple rule:
+
+Modern JavaScript me mostly let aur const use karo. var ab comparatively kam use hota hai.
+
+Ek important example
+
+Dekho:
+
+let age = 20;
+
+if (true) {
+    let name = "Aman";
+
+    console.log(age);
+    console.log(name);
+}
+
+console.log(age);
+
+Output:
+
+20
+Aman
+20
+
+Kyun?
+
+age bahar declare hua:
+
+let age = 20;
+
+Isliye andar bhi access kar sakte hain.
+
+Lekin name:
+
+if (true) {
+    let name = "Aman";
+}
+
+sirf block ke andar hai.
+
+Agar:
+
+console.log(name);
+
+bahar likhoge, error aayega.
+
+Parent aur Child Scope samjho
+
+Bahut simple rule hai:
+
+Andar wala scope bahar wale variable ko access kar sakta hai.
+
+Lekin:
+
+Bahar wala scope andar wale variable ko access nahi kar sakta.
+
+Example:
+
+let a = 10;
+
+function test() {
+
+    let b = 20;
+
+    console.log(a);
+    console.log(b);
+}
+
+test();
+
+Output:
+
+10
+20
+
+Lekin:
+
+console.log(b);
+
+function ke bahar likhne par error.
+
+Visual:
+
+Global Scope
+
+a = 10
+│
+│
+└── Function Scope
+       │
+       ├── a ✅
+       └── b = 20 ✅
+
+
+Global se b access ❌
+4. Lexical Scope
+
+Naam thoda difficult hai, concept easy hai.
+
+Consider:
+
+function outer() {
+
+    let name = "Rahul";
+
+    function inner() {
+        console.log(name);
+    }
+
+    inner();
+}
+
+outer();
+
+Output:
+
+Rahul
+
+Question:
+
+inner() ke andar name variable bana hi nahi.
+
+Phir mila kahan se?
+
+Outer function se:
+
+outer()
+│
+├── name = "Rahul"
+│
+└── inner()
+      │
+      └── name? 
+           ↓
+      apne andar nahi mila
+           ↓
+      outer me search kiya
+           ↓
+         mil gaya ✅
+
+Is behavior ko Lexical Scope kehte hain.
+
+JavaScript variable ko kaise search karta hai?
+
+Example:
+
+let a = 10;
+
+function outer() {
+
+    let b = 20;
+
+    function inner() {
+
+        let c = 30;
+
+        console.log(a);
+        console.log(b);
+        console.log(c);
+    }
+
+    inner();
+}
+
+outer();
+
+Output:
+
+10
+20
+30
+
+JavaScript inner() ke andar:
+
+c search karega
+inner scope → c mil gaya ✅
+b search karega
+inner scope → nahi mila
+      ↓
+outer scope → mil gaya ✅
+a search karega
+inner → nahi mila
+↓
+outer → nahi mila
+↓
+global → mil gaya ✅
+
+Is chain ko Scope Chain bolte hain.
+
+Scope Chain
+
+Simple definition:
+
+JavaScript variable ko current scope se start karke parent scopes me search karta hai.
+
+Example:
+
+let x = 10;
+
+function first() {
+
+    let y = 20;
+
+    function second() {
+
+        let z = 30;
+
+        console.log(x);
+        console.log(y);
+        console.log(z);
+    }
+
+    second();
+}
+
+first();
+
+Scope chain:
+
+second()
+   ↓
+first()
+   ↓
+Global Scope
+Same variable name ho to kya hoga?
+
+Example:
+
+let name = "Global";
+
+function test() {
+
+    let name = "Local";
+
+    console.log(name);
+}
+
+test();
+
+Output:
+
+Local
+
+Kyun?
+
+JavaScript sabse pehle nearest scope check karta hai.
+
+test()
+│
+└── name = "Local" ← pehle ye mila ✅
+
+Global
+│
+└── name = "Global"
+
+Isko Variable Shadowing kehte hain.
+
+Real life example
+
+Socho tumhara ghar hai.
+
+Country
+  ↓
+City
+  ↓
+House
+  ↓
+Room
+
+Room me jo cheez hai:
+
+Room ke andar use ✅
+House ke bahar se directly access ❌
+
+Lekin ghar ke common area ki cheez room wala use kar sakta hai.
+
+JavaScript me bhi:
+
+Global Scope
+   ↓
+Function Scope
+   ↓
+Block Scope
+
+Inner scope outer variable ko access kar sakta hai.
+
+Scope kahan use hota hai?
+
+Scope practically almost har JavaScript program me automatically kaam karta hai.
+
+Especially:
+
+Functions
+function calculate() {
+    let total = 100;
+}
+
+total sirf calculation function ke liye rakha.
+
+if condition
+if (age >= 18) {
+    let message = "Eligible";
+}
+
+message sirf condition ke block me.
+
+Loops
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+i loop ke block se related hai.
+
+Large projects
+
+Scope variables ko accidentally overwrite hone se bachata hai.
+
+Ek common mistake
+if (true) {
+    let message = "Hello";
+}
+
+console.log(message);
+
+Beginner sochta hai:
+
+message to banaya tha.
+
+Yes, banaya tha.
+
+Lekin uska scope:
+
+{
+    let message = "Hello";
+}
+
+sirf { } tak tha.
+
+var ke sath same code
+if (true) {
+    var message = "Hello";
+}
+
+console.log(message);
+
+Output:
+
+Hello
+
+Isi wajah se var kabhi-kabhi confusing bugs create karta hai.
+
+Short summary
+
+Scope = variable ki accessibility boundary.
+
+Yaad rakho:
+
+Global Scope
+Variable almost har jagah accessible
+
+Function Scope
+Variable sirf function ke andar
+
+Block Scope
+Variable sirf { } ke andar
+let / const follow karte hain
+
+Lexical Scope
+Inner function outer function ke variables access kar sakta hai
+
+Aur sabse important rule:
+
+Inner → Outer variable access ✅
+
+Outer → Inner variable access ❌
+Ab 3 checking questions:
+
+Q1. Output kya hoga?
+
+let x = 10;
+
+function test() {
+    console.log(x);
+}
+
+test();
+
+A. Error
+B. 10
+C. undefined
+
+Q2. Output kya hoga?
+
+if (true) {
+    let age = 20;
+}
+
+console.log(age);
+
+A. 20
+B. undefined
+C. Error
+
+Q3. Output kya hoga?
+
+if (true) {
+    var age = 20;
+}
+
+console.log(age);
+
+A. Error
+B. 20
+C. undefined
+
+Aap bas 1-B, 2-C, 3-B jaise answer dein. Uske baad main scope ko var, let, const ke tricky examples + interview/exam-level questions se practice karwaunga.
+
+Aapke answers:
+
+B ✅ Correct
+B ❌ Incorrect
+B ✅ Correct
+
+Score: 2/3
+
+Q2 ko samjho:
+
+if (true) {
+    let age = 20;
+}
+
+console.log(age);
+
+Yahan age ko let se { } ke andar banaya gaya hai.
+
+let block scoped hota hai.
+
+Isliye:
+
+{
+   let age = 20;   ✅ yahan accessible
+}
+
+console.log(age);  ❌ yahan accessible nahi
+
+Correct answer tha: C. Error
+
+Error roughly:
+
+ReferenceError: age is not defined
+
+Difference yaad rakho:
+
+if (true) {
+    let age = 20;
+}
+console.log(age); // ❌ Error
+
+Lekin:
+
+if (true) {
+    var age = 20;
+}
+console.log(age); // ✅ 20
+
+Kyunki:
+
+let → block scoped ✅
+const → block scoped ✅
+var → block scoped nahi hota ❌
+Next 3 questions
+
+Q4. Output kya hoga?
+
+let name = "Ali";
+
+function test() {
+    let name = "Rahul";
+    console.log(name);
+}
+
+test();
+
+A. Ali
+B. Rahul
+C. Error
+
+Q5. Output kya hoga?
+
+let x = 10;
+
+function outer() {
+    let y = 20;
+
+    function inner() {
+        console.log(x);
+        console.log(y);
+    }
+
+    inner();
+}
+
+outer();
+
+A.
+
+10
+20
+
+B.
+
+10
+Error
+
+C. Error
+
+Q6. Output kya hoga?
+
+function test() {
+    let age = 25;
+}
+
+test();
+
+console.log(age);
+
+A. 25
+B. undefined
+C. Error
+
+Answer aise dein: 4-B, 5-A, 6-C.
+
+4b,5a,6c
+
+Bilkul sahi — 3/3 ✅
+
+Q4: B ✅ Rahul — nearest/local scope wala name use hua.
+Q5: A ✅ 10 aur 20 — inner function outer scopes ke variables access kar sakta hai.
+Q6: C ✅ Error — age function ke bahar available nahi hai.
+
+Ab thoda tricky level:
+
+Q7. Output kya hoga?
+
+let x = 5;
+
+function test() {
+    let x = 10;
+    console.log(x);
+}
+
+test();
+console.log(x);
+
+A.
+
+10
+5
+
+B.
+
+5
+5
+
+C. Error
+
+Q8. Output kya hoga?
+
+if (true) {
+    const city = "Delhi";
+    console.log(city);
+}
+
+console.log(city);
+
+A. Delhi, Delhi
+B. Delhi, then Error
+C. Error, Error
+
+Q9. Output kya hoga?
+
+function outer() {
+    let a = 100;
+
+    function inner() {
+        let b = 200;
+        console.log(a);
+    }
+
+    inner();
+    console.log(b);
+}
+
+outer();
+
+A.
+
+100
+200
+
+B. 100, then Error
+C. Error directly
+
+Answer aise dein: 7-A, 8-B, 9-B.
+
+7a,8a,9a
+
+Aapke answers:
+
+Q7: A ✅ Correct
+Output:
+
+10
+5
+
+Reason: function ke andar wala x = 10 local hai, aur bahar global x = 5 alag hai.
+
+Q8: A ❌ Incorrect
+Correct answer: B — Delhi, then Error
+
+if (true) {
+    const city = "Delhi";
+    console.log(city); // ✅ Delhi
+}
+
+console.log(city); // ❌ Error
+
+const block scoped hota hai. { } ke bahar access nahi kar sakte.
+
+Q9: A ❌ Incorrect
+Correct answer: B — 100, then Error
+
+function outer() {
+    let a = 100;
+
+    function inner() {
+        let b = 200;
+        console.log(a); // ✅ 100
+    }
+
+    inner();
+    console.log(b); // ❌ Error
+}
+
+inner() outer function ka variable a access kar sakta hai, lekin outer() inner function ka variable b access nahi kar sakta.
+
+Important rule yaad rakho
+Inner scope → Outer variable access ✅
+Outer scope → Inner variable access ❌
+
+Aur:
+
+let / const → block scoped
+var → block scoped nahi
+
+Score: 1/3
+
+Ab next 3 questions isi weak point par:
+
+Q10
+
+{
+    let x = 50;
+    console.log(x);
+}
+
+console.log(x);
+
+A. 50, 50
+B. 50, then Error
+C. Error directly
+
+Q11
+
+let a = 10;
+
+function outer() {
+    function inner() {
+        console.log(a);
+    }
+
+    inner();
+}
+
+outer();
+
+A. 10
+B. Error
+C. undefined
+
+Q12
+
+function outer() {
+    let x = 20;
+
+    function inner() {
+        let y = 30;
+    }
+
+    inner();
+    console.log(y);
+}
+
+outer();
+
+A. 30
+B. undefined
+C. Error
+
+Answer: 10-?, 11-?, 12-? */
+    </script>
+</body>
+</html>

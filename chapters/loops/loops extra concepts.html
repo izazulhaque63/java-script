@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>loops advance concepts</title>
+</head>
+<body>
+    <script>
+        /* for...of Loop
+
+Ye arrays ke liye bahut useful hai.
+
+Array:
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+Normal for:
+
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+
+for...of me:
+
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+
+Output:
+
+Apple
+Mango
+Banana
+
+Syntax:
+
+for (let value of array) {
+  // code
+}
+
+Example:
+
+let numbers = [10, 20, 30];
+
+for (let number of numbers) {
+  console.log(number);
+}
+
+Output:
+
+10
+20
+30
+
+for...of directly value deta hai.
+
+12. for...in Loop
+
+for...in mainly objects ke liye use hota hai.
+
+Object:
+
+let student = {
+  name: "Ali",
+  age: 20,
+  city: "Delhi"
+};
+
+Loop:
+
+for (let key in student) {
+  console.log(key);
+}
+
+Output:
+
+name
+age
+city
+
+Agar values bhi chahiye:
+
+for (let key in student) {
+  console.log(student[key]);
+}
+
+Output:
+
+Ali
+20
+Delhi
+
+Dono ek saath:
+
+for (let key in student) {
+  console.log(key, student[key]);
+}
+
+Output:
+
+name Ali
+age 20
+city Delhi
+for...of vs for...in
+
+Ye beginners ko bahut confuse karta hai.
+
+Array:
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+for...of:
+
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+
+Output:
+
+Apple
+Mango
+Banana
+
+Means:
+
+OF → VALUES
+
+for...in:
+
+for (let index in fruits) {
+  console.log(index);
+}
+
+Output:
+
+0
+1
+2
+
+Means:
+
+IN → KEYS / INDEX
+
+Easy trick:
+
+for OF → value
+
+for IN → key/index
+
+Object ke liye generally:
+
+for...in
+
+Array ke values ke liye:
+
+for...of
+13. forEach()
+
+Ye array method hai.
+
+Example:
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.forEach(function(fruit) {
+  console.log(fruit);
+});
+
+Output:
+
+Apple
+Mango
+Banana
+
+Arrow function se:
+
+fruits.forEach((fruit) => {
+  console.log(fruit);
+});
+
+Aur short:
+
+fruits.forEach(fruit => console.log(fruit));
+forEach() me value aur index
+let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.forEach((fruit, index) => {
+  console.log(index, fruit);
+});
+
+Output:
+
+0 Apple
+1 Mango
+2 Banana
+14. break
+
+break loop ko turant band kar deta hai.
+
+Example:
+
+for (let i = 1; i <= 10; i++) {
+
+  if (i === 5) {
+    break;
+  }
+
+  console.log(i);
+}
+
+Output:
+
+1
+2
+3
+4
+
+Jaise hi:
+
+i === 5
+
+hua:
+
+break;
+
+ne poora loop stop kar diya.
+
+15. continue
+
+continue poore loop ko stop nahi karta.
+
+Sirf current iteration skip karta hai.
+
+Example:
+
+for (let i = 1; i <= 5; i++) {
+
+  if (i === 3) {
+    continue;
+  }
+
+  console.log(i);
+}
+
+Output:
+
+1
+2
+4
+5
+
+3 skip ho gaya.
+
+Easy difference:
+
+break
+↓
+Loop khatam
+
+continue
+↓
+Current round skip
+↓
+Next round
+16. Iteration kya hota hai?
+
+Loop ka ek complete round iteration kehlata hai.
+
+Example:
+
+for (let i = 1; i <= 3; i++) {
+  console.log(i);
+}
+
+Isme:
+
+i = 1 → first iteration
+
+i = 2 → second iteration
+
+i = 3 → third iteration
+
+Total:
+
+3 iterations
+17. Nested Loop
+
+Loop ke andar loop ko nested loop kehte hain.
+
+Example:
+
+for (let i = 1; i <= 3; i++) {
+
+  for (let j = 1; j <= 2; j++) {
+    console.log(i, j);
+  }
+
+}
+
+Output:
+
+1 1
+1 2
+2 1
+2 2
+3 1
+3 2
+
+Outer loop:
+
+i
+
+Inner loop:
+
+j
+
+Outer loop ek baar chalta hai, uske andar inner loop completely chalta hai.
+
+18. Multiplication Table using Loop
+
+Example: table of 2.
+
+for (let i = 1; i <= 10; i++) {
+  console.log(2 * i);
+}
+
+Output:
+
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+
+Better format:
+
+for (let i = 1; i <= 10; i++) {
+  console.log(`2 x ${i} = ${2 * i}`);
+}
+
+Output:
+
+2 x 1 = 2
+2 x 2 = 4
+2 x 3 = 6
+...
+2 x 10 = 20
+19. Numbers ka Sum using Loop
+
+Suppose:
+
+1 + 2 + 3 + 4 + 5
+
+calculate karna hai.
+
+let sum = 0;
+
+for (let i = 1; i <= 5; i++) {
+  sum = sum + i;
+}
+
+console.log(sum);
+
+Output:
+
+15
+
+Step-by-step:
+
+sum = 0
+
+i = 1
+sum = 0 + 1 = 1
+
+i = 2
+sum = 1 + 2 = 3
+
+i = 3
+sum = 3 + 3 = 6
+
+i = 4
+sum = 6 + 4 = 10
+
+i = 5
+sum = 10 + 5 = 15
+20. Array ka Sum
+let numbers = [10, 20, 30, 40];
+
+let sum = 0;
+
+for (let number of numbers) {
+  sum = sum + number;
+}
+
+console.log(sum);
+
+Output:
+
+100
+21. Loop ke Types ek Table me
+Loop	Mostly kab use kare
+for	Jab iterations pata ho
+while	Jab condition ke basis par chalana ho
+do...while	Jab code kam se kam ek baar chalana ho
+for...of	Array/string ki values lene ke liye
+for...in	Object ki keys/properties ke liye
+forEach()	Array ke har element par function chalane ke liye
+22. Sabse Important Syntax Yaad Rakho
+For
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+While
+let i = 0;
+
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+Do While
+let i = 0;
+
+do {
+  console.log(i);
+  i++;
+} while (i < 5);
+For Of
+for (let value of array) {
+  console.log(value);
+}
+For In
+for (let key in object) {
+  console.log(key);
+}
+ForEach
+array.forEach((value) => {
+  console.log(value);
+});
+Common Mistakes
+Mistake 1: Semicolon lagana
+
+❌ Wrong:
+
+for (let i = 1; i <= 5; i++); {
+  console.log(i);
+}
+
+for(...) ke baad semicolon nahi lagana.
+
+✅ Correct:
+
+for (let i = 1; i <= 5; i++) {
+  console.log(i);
+}
+Mistake 2: Update bhool jaana
+let i = 1;
+
+while (i <= 5) {
+  console.log(i);
+}
+
+Infinite loop ho jayega.
+
+Correct:
+
+let i = 1;
+
+while (i <= 5) {
+  console.log(i);
+  i++;
+}
+Mistake 3: Array me <= length
+
+❌:
+
+for (let i = 0; i <= fruits.length; i++) {
+  console.log(fruits[i]);
+}
+
+Suppose length 3 hai.
+
+Indexes sirf:
+
+0
+1
+2
+
+hain.
+
+Lekin <= ki wajah se 3 bhi access hoga:
+
+fruits[3]
+
+jo undefined hai.
+
+✅ Correct:
+
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+Ek bahut important mental model
+
+Har loop me basically 3 sawal hote hain:
+
+1. Kahan se start karna hai?
+2. Kab tak chalna hai?
+3. Har round ke baad kya change hoga?
+
+Example:
+
+for (let i = 1; i <= 10; i++) {
+
+Answer:
+
+Start?
+1
+
+Kab tak?
+10 tak
+
+Change?
+har baar +1
+
+Agar ye 3 cheeze samajh aa gayi, to for loop samajh aa gaya.*/
+    </script>
+</body>
+</html>

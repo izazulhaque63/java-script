@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>object in detail all concept</title>
+</head>
+<body>
+    <script>
+        /*Bilkul basic se samjhte hain. JavaScript me Object bahut important concept hai.
+
+1. Object kya hota hai?
+
+Object ek aisa container hai jisme hum ek hi jagah par multiple related information store kar sakte hain.
+
+Example: maan lo hume ek student ki information store karni hai:
+
+let name = "Rahul";
+let age = 20;
+let city = "Delhi";
+
+Ye alag-alag variables hain.
+
+Object use karke hum in sabko ek saath rakh sakte hain:
+
+let student = {
+  name: "Rahul",
+  age: 20,
+  city: "Delhi"
+};
+
+Yahan student ek object hai.
+
+Isko aise imagine karo:
+
+student
+│
+├── name → Rahul
+├── age  → 20
+└── city → Delhi
+2. Object ka basic syntax
+let objectName = {
+  key1: value1,
+  key2: value2,
+  key3: value3
+};
+
+Example:
+
+let person = {
+  name: "Aman",
+  age: 25,
+  isStudent: true
+};
+
+Yahan:
+
+person → object ka naam
+name, age, isStudent → keys / properties
+"Aman", 25, true → values
+
+Isliye object generally key-value pairs me data store karta hai.
+
+3. Key aur Value kya hai?
+
+Example:
+
+let car = {
+  brand: "BMW",
+  color: "Black",
+  price: 5000000
+};
+
+Isme:
+
+Key	Value
+brand	"BMW"
+color	"Black"
+price	5000000
+
+brand: "BMW" ko ek property bhi bolte hain.
+
+4. Object ki value kaise access karte hain?
+
+Do main methods hain.
+
+Method 1: Dot notation
+let person = {
+  name: "Rahul",
+  age: 20
+};
+
+console.log(person.name);
+console.log(person.age);
+
+Output:
+
+Rahul
+20
+
+Syntax:
+
+objectName.key
+Method 2: Bracket notation
+console.log(person["name"]);
+console.log(person["age"]);
+
+Output:
+
+Rahul
+20
+
+Syntax:
+
+objectName["key"]
+
+Dono almost same kaam karte hain.
+
+5. Object ki value change kaise karte hain?
+let person = {
+  name: "Rahul",
+  age: 20
+};
+
+person.age = 21;
+
+console.log(person);
+
+Ab object:
+
+{
+  name: "Rahul",
+  age: 21
+}
+6. Object me new property kaise add karte hain?
+let person = {
+  name: "Rahul",
+  age: 20
+};
+
+person.city = "Mumbai";
+
+console.log(person);
+
+Result:
+
+{
+  name: "Rahul",
+  age: 20,
+  city: "Mumbai"
+}
+
+JavaScript me object banane ke baad bhi property add kar sakte hain.
+
+7. Property delete kaise karte hain?
+
+delete keyword use hota hai.
+
+let person = {
+  name: "Rahul",
+  age: 20,
+  city: "Delhi"
+};
+
+delete person.city;
+
+console.log(person);
+
+Output:
+
+{
+  name: "Rahul",
+  age: 20
+}
+8. Object ke andar different types ki values ho sakti hain
+
+Object me sirf string ya number nahi, almost kuch bhi store kar sakte ho.
+
+let student = {
+  name: "Aman",
+  age: 20,
+  passed: true,
+  marks: [80, 90, 70],
+  address: {
+    city: "Delhi",
+    pin: 110001
+  }
+};
+
+Yahan object ke andar:
+
+name    → String
+age     → Number
+passed  → Boolean
+marks   → Array
+address → Object
+9. Nested Object kya hota hai?
+
+Jab object ke andar object hota hai, use nested object bolte hain.
+
+Example:
+
+let person = {
+  name: "Rahul",
+
+  address: {
+    city: "Delhi",
+    pin: 110001
+  }
+};
+
+address ke andar ek aur object hai.
+
+City access karne ke liye:
+
+console.log(person.address.city);
+
+Output:
+
+Delhi
+
+Samjho:
+
+person
+│
+├── name → Rahul
+│
+└── address
+      │
+      ├── city → Delhi
+      └── pin  → 110001
+10. Object ke andar function
+
+Object ke andar function bhi rakh sakte hain.
+
+Example:
+
+let person = {
+  name: "Rahul",
+
+  greet: function() {
+    console.log("Hello");
+  }
+};
+
+person.greet();
+
+Output:
+
+Hello
+
+Object ke andar jo function hota hai use generally method kaha jata hai.
+
+Isliye:
+
+person.greet()
+
+me greet ek method hai.
+
+11. this keyword object me
+
+Object ke andar current object ki property access karne ke liye this use hota hai.
+
+let person = {
+  name: "Rahul",
+
+  greet: function() {
+    console.log("Hello " + this.name);
+  }
+};
+
+person.greet();
+
+Output:
+
+Hello Rahul
+
+Yahan:
+
+this.name
+
+ka matlab basically:
+
+person.name
+
+hai.
+
+Abhi this ko itna hi samjho. Baad me hum ise detail me karenge.
+
+Object ke important types
+
+JavaScript me object ka concept kaafi broad hai.
+
+Main types ko beginner level par aise samjho:
+
+1. Normal Object
+let person = {
+  name: "Rahul",
+  age: 20
+};
+
+Isko object literal bhi kehte hain.
+
+2. Nested Object
+
+Object ke andar object:
+
+let person = {
+  name: "Rahul",
+  address: {
+    city: "Delhi"
+  }
+};
+3. Array
+
+JavaScript me technically array bhi ek type ka object hai.
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+Check:
+
+console.log(typeof fruits);
+
+Output:
+
+object
+
+Lekin practical programming me hum Array ko separately hi study karte hain.
+
+4. Function
+
+Functions bhi JavaScript me special type ke objects hote hain.
+
+function greet() {
+  console.log("Hello");
+}
+
+Lekin:
+
+typeof greet
+
+result deta hai:
+
+function
+
+Isliye beginner level par functions ko separate topic hi samjho.
+
+5. Date Object
+
+Date/time ke liye:
+
+let today = new Date();
+
+console.log(today);
+6. Constructor se Object
+
+Object new Object() se bhi bana sakte hain:
+
+let person = new Object();
+
+person.name = "Rahul";
+person.age = 20;
+
+console.log(person);
+
+Lekin mostly hum ye use karte hain:
+
+let person = {
+  name: "Rahul",
+  age: 20
+};
+
+Ye simple aur common hai.
+
+Sabse important difference: Primitive vs Object
+
+Primitive values:
+
+let name = "Rahul";   // String
+let age = 20;         // Number
+let passed = true;    // Boolean
+
+Object:
+
+let student = {
+  name: "Rahul",
+  age: 20,
+  passed: true
+};
+
+Difference ko simple language me:
+
+Primitive → usually ek individual value
+
+Object → multiple related values ko
+         ek structure me store karta hai
+Real-life example
+
+Maan lo Amazon par ek product hai.
+
+Us product ko JavaScript object me likh sakte hain:
+
+let product = {
+  name: "iPhone",
+  price: 70000,
+  brand: "Apple",
+  inStock: true,
+  rating: 4.5
+};
+
+Ab:
+
+console.log(product.name);
+
+Output:
+
+iPhone
+console.log(product.price);
+
+Output:
+
+70000
+
+Isi wajah se objects real projects me bahut use hote hain.
+
+Object ka quick summary
+let student = {
+  name: "Aman",
+  age: 20,
+  passed: true
+};
+
+Isme:
+
+student     → Object
+name        → Key / Property
+"Aman"      → Value
+age         → Key / Property
+20          → Value
+passed      → Key / Property
+true        → Value
+
+Access:
+
+student.name
+
+Change:
+
+student.age = 21;
+
+Add:
+
+student.city = "Delhi";
+
+Delete:
+
+delete student.city;
+Ab 5 bahut basic questions:
+
+Q1. Is code me object ka naam kya hai?
+
+let car = {
+  brand: "BMW",
+  price: 5000000
+};
+
+A. brand
+B. car
+C. "BMW"
+
+Q2. brand kya hai?
+
+A. Key / Property
+B. Object
+C. Function
+
+Q3. "BMW" kya hai?
+
+A. Key
+B. Value
+C. Object name
+
+Q4. BMW print karne ka correct code?
+
+A.
+
+console.log(car.brand);
+
+B.
+
+console.log(brand.car);
+
+C.
+
+console.log(car);
+
+Q5. car.color = "Black"; kya karega?
+
+A. Object delete karega
+B. New color property add karega
+C. car ko string bana dega
+
+Bas 1-B, 2-A... format me answers do. Uske baad hum object ko memory/reference ke concept ke saath aur object vs array ekdum basic se karenge.
+
+1b, 2a, 3b,4a,5b
+
+✅ Sabhi answers correct hain! */
+
+
+    </script>
+</body>
+</html>

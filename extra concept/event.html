@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>event in java script all concepts</title>
+</head>
+<body>
+     Bilkul. JavaScript me Event Listener bahut important concept hai, especially jab hum webpage ko interactive banate hain.
+
+Sabse basic se samjhte hain.
+
+1. Event kya hota hai?
+
+Event = user ya browser ke dwara hone wali koi activity.
+
+Jaise:
+
+button par click karna
+mouse le jana
+keyboard se key press karna
+input box me kuch type karna
+form submit karna
+page load hona
+
+Example:
+
+<button>Click Me</button>
+
+User ne button ko click kiya.
+
+Ye click ek event hai.
+
+2. Event Listener kya hota hai?
+
+Event Listener JavaScript ko bolta hai:
+
+"Is element par nazar rakho. Jab ye event ho, tab ye kaam karna."
+
+Example:
+
+button.addEventListener("click", function () {
+    console.log("Button clicked");
+});
+
+Meaning:
+
+button
+   ↓
+click hone ka wait karo
+   ↓
+click hua?
+   ↓
+function chalao
+   ↓
+"Button clicked"
+3. Basic Syntax
+element.addEventListener("event", function);
+
+Isme 3 important cheezein hain:
+
+element.addEventListener("click", function);
+element
+
+Kis HTML element par event detect karna hai.
+
+Example:
+
+button
+"click"
+
+Kaunsa event detect karna hai.
+
+function
+
+Event hone ke baad kya kaam karna hai.
+
+4. Complete Example
+
+HTML:
+
+<button id="btn">Click Me</button>
+
+JavaScript:
+
+let button = document.querySelector("#btn");
+
+button.addEventListener("click", function () {
+    console.log("Button clicked");
+});
+
+Ab line-by-line samjho.
+
+Line 1
+let button = document.querySelector("#btn");
+
+JavaScript HTML se ye button dhund raha hai:
+
+<button id="btn">
+
+Aur usko button variable me store kar raha hai.
+
+Line 2
+button.addEventListener("click", function () {
+
+Meaning:
+
+button par "click" event ka wait karo.
+
+Line 3
+console.log("Button clicked");
+
+Button click hone ke baad console me print hoga:
+
+Button clicked
+5. Event Listener ko real-life example se samjho
+
+Imagine karo ghar me doorbell hai.
+
+Doorbell ka button:
+
+HTML Element
+
+Button dabana:
+
+Event
+
+Doorbell ka button press detect karne wala system:
+
+Event Listener
+
+Bell bajna:
+
+Function
+
+So:
+
+Button press
+     ↓
+Event Listener detect karta hai
+     ↓
+Function execute hota hai
+     ↓
+Bell bajti hai
+
+JavaScript me:
+
+button.addEventListener("click", function () {
+    console.log("Bell baj gayi");
+});
+6. Simple practical example
+
+HTML:
+
+<button id="btn">Click Me</button>
+
+<h1 id="heading">Hello</h1>
+
+JavaScript:
+
+let button = document.querySelector("#btn");
+let heading = document.querySelector("#heading");
+
+button.addEventListener("click", function () {
+    heading.innerText = "Welcome";
+});
+
+Initially webpage:
+
+Hello
+
+[Click Me]
+
+Button click:
+
+Welcome
+
+[Click Me]
+
+Kyun?
+
+Because:
+
+heading.innerText = "Welcome";
+
+heading ka text change kar raha hai.
+
+7. Function alag bhi bana sakte hain
+
+Humne abhi likha:
+
+button.addEventListener("click", function () {
+    console.log("Clicked");
+});
+
+Ye anonymous function hai.
+
+Lekin function pehle bhi bana sakte hain:
+
+function showMessage() {
+    console.log("Clicked");
+}
+
+button.addEventListener("click", showMessage);
+
+Meaning:
+
+click hua
+   ↓
+showMessage function call hua
+
+Important:
+
+button.addEventListener("click", showMessage);
+
+Usually yahan:
+
+showMessage
+
+likhte hain.
+
+Ye nahi:
+
+showMessage()
+
+Kyunki showMessage() likhne par function turant execute ho sakta hai.
+
+8. Common Events
+
+JavaScript me bahut saare events hote hain.
+
+click
+button.addEventListener("click", function () {
+    console.log("clicked");
+});
+
+Button click hone par.
+
+dblclick
+
+Double click:
+
+button.addEventListener("dblclick", function () {
+    console.log("double clicked");
+});
+mouseover
+
+Mouse element ke upar aaye:
+
+button.addEventListener("mouseover", function () {
+    console.log("Mouse aa gaya");
+});
+mouseout
+
+Mouse element se bahar jaye:
+
+button.addEventListener("mouseout", function () {
+    console.log("Mouse bahar gaya");
+});
+keydown
+
+Keyboard ki key press hone par:
+
+document.addEventListener("keydown", function () {
+    console.log("Key pressed");
+});
+input
+
+Input box me user kuch type kare:
+
+let input = document.querySelector("#name");
+
+input.addEventListener("input", function () {
+    console.log("User typing...");
+});
+change
+
+Input/select ki value change hone par:
+
+input.addEventListener("change", function () {
+    console.log("Value changed");
+});
+submit
+
+Form submit hone par:
+
+form.addEventListener("submit", function () {
+    console.log("Form submitted");
+});
+9. Event Object kya hota hai?
+
+Event Listener function ko JavaScript automatically event ke baare me information deta hai.
+
+Example:
+
+button.addEventListener("click", function (event) {
+    console.log(event);
+});
+
+Yahan:
+
+event
+
+ek object hai.
+
+Isme information hoti hai:
+
+kis element par click hua
+mouse kaha tha
+kaunsi key press hui
+event ka type kya tha
+
+Commonly event ko short me:
+
+e
+
+likhte hain.
+
+button.addEventListener("click", function (e) {
+    console.log(e);
+});
+10. e.target
+
+Bahut important hai.
+
+button.addEventListener("click", function (e) {
+    console.log(e.target);
+});
+
+e.target batata hai:
+
+actual me kis element par event hua.
+
+Example:
+
+<button id="btn">Click Me</button>
+
+Click karne par:
+
+console.log(e.target);
+
+roughly ye element milega:
+
+<button id="btn">Click Me</button>
+11. Button ka text change using e.target
+button.addEventListener("click", function (e) {
+    e.target.innerText = "Clicked";
+});
+
+Pehle:
+
+[Click Me]
+
+Click ke baad:
+
+[Clicked]
+12. Input value kaise lete hain?
+
+HTML:
+
+<input id="name" type="text">
+
+JavaScript:
+
+let input = document.querySelector("#name");
+
+input.addEventListener("input", function (e) {
+    console.log(e.target.value);
+});
+
+User type kare:
+
+Imam
+
+Console:
+
+I
+Im
+Ima
+Imam
+
+Because har input change par event run ho raha hai.
+
+13. onclick vs addEventListener
+
+Aapne shayad HTML me dekha hoga:
+
+<button onclick="hello()">Click</button>
+
+Aur:
+
+function hello() {
+    console.log("Hello");
+}
+
+Ye bhi event handling hai.
+
+Lekin modern JavaScript me generally preferred hai:
+
+button.addEventListener("click", hello);
+
+Kyuki HTML aur JavaScript separate rehte hain.
+
+HTML:
+
+<button id="btn">Click</button>
+
+JavaScript:
+
+let button = document.querySelector("#btn");
+
+button.addEventListener("click", function () {
+    console.log("Hello");
+});
+
+Ye zyada clean approach hai.
+
+14. Ek element par multiple Event Listeners
+
+Ye addEventListener() ka important advantage hai.
+
+button.addEventListener("click", function () {
+    console.log("First function");
+});
+
+button.addEventListener("click", function () {
+    console.log("Second function");
+});
+
+Button click karoge:
+
+First function
+Second function
+
+Dono execute honge.
+
+15. Event Listener remove bhi kar sakte hain
+
+Syntax:
+
+element.removeEventListener("click", functionName);
+
+Example:
+
+function hello() {
+    console.log("Hello");
+}
+
+button.addEventListener("click", hello);
+
+Remove:
+
+button.removeEventListener("click", hello);
+
+Ab click karne par hello execute nahi hoga.
+
+16. Form me preventDefault()
+
+Bahut common concept hai.
+
+Normally form submit hone par page reload ho sakta hai.
+
+Example:
+
+form.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    console.log("Form submitted");
+});
+
+preventDefault() meaning:
+
+browser ka default behaviour rok do.
+
+Form case me:
+
+submit
+↓
+normally page reload
+↓
+preventDefault()
+↓
+page reload stop
+17. Complete practical example
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Listener</title>
+</head>
+
+<body>
+
+    <input id="name" type="text" placeholder="Enter your name">
+
+    <button id="btn">Submit</button>
+
+    <h1 id="result"></h1>
+
+    <script>
+
+        let input = document.querySelector("#name");
+
+        let button = document.querySelector("#btn");
+
+        let result = document.querySelector("#result");
+
+        button.addEventListener("click", function () {
+
+            result.innerText = `Hello ${input.value}`;
+
+        });
+
+    </script>
+
+</body>
+</html>
+
+Suppose user enters:
+
+Rahul
+
+Then clicks:
+
+Submit
+
+Output:
+
+Hello Rahul
+
+Working:
+
+User types Rahul
+       ↓
+input.value = "Rahul"
+       ↓
+User clicks button
+       ↓
+click event
+       ↓
+Event Listener detects click
+       ↓
+function runs
+       ↓
+Hello Rahul
+18. Event Listener ka formula yaad rakho
+
+Bas ye formula mind me rakho:
+
+ELEMENT + EVENT + FUNCTION
+
+Code:
+
+element.addEventListener("event", function);
+
+Example:
+
+button.addEventListener("click", function () {
+    console.log("Hello");
+});
+
+Meaning:
+
+button
++
+click
++
+kya karna hai
+Common mistake
+
+Galat:
+
+button.addEventListener("onclick", function () {
+    console.log("Hello");
+});
+
+Sahi:
+
+button.addEventListener("click", function () {
+    console.log("Hello");
+});
+
+addEventListener() ke andar:
+
+"click"
+
+likhenge, "onclick" nahi.
+
+Ab aap check karo
+Question 1
+
+Is code me event kaunsa hai?
+
+button.addEventListener("click", function () {
+    console.log("Hello");
+});
+
+A. button
+B. click
+C. function
+
+Question 2
+
+Agar mouse button ke upar aane par kuch karwana ho, kaunsa event use karenge?
+
+A. click
+B. mouseover
+C. submit
+
+Question 3
+
+Isme function kab chalega?
+</body>
+</html>

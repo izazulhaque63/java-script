@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>dom all concept</title>
+</head>
+<body>
+    <script>
+       /* JavaScript me DOM properties aur DOM methods ka use HTML page ko JavaScript se read, change, add, remove ya control karne ke liye hota hai.
+
+Sabse pehle DOM samjho:
+
+DOM = Document Object Model
+
+Browser HTML page ko objects ki form me convert karta hai, taaki JavaScript uske elements ko access kar sake.
+
+Example HTML:
+
+<h1 id="title">Hello</h1>
+
+JavaScript:
+
+let heading = document.querySelector("#title");
+
+Ab heading ke through hum <h1> ko control kar sakte hain.
+
+DOM Property kya hoti hai?
+
+Property kisi element ki information/value hoti hai.
+
+Example:
+
+heading.innerText
+
+Yahan innerText ek property hai.
+
+Agar:
+
+<h1 id="title">Hello</h1>
+
+aur hum likhen:
+
+let heading = document.querySelector("#title");
+
+console.log(heading.innerText);
+
+Output:
+
+Hello
+
+Property ko hum change bhi kar sakte hain:
+
+heading.innerText = "Welcome";
+
+HTML page par:
+
+Welcome
+
+dikhne lagega.
+
+Simple rule:
+
+Property batati hai element ke paas kya value/information hai.
+
+DOM Method kya hota hai?
+
+Method ek function/action hota hai jo DOM par kuch kaam karta hai.
+
+Example:
+
+document.querySelector("#title")
+
+Yahan querySelector() ek method hai.
+
+Ye HTML element ko find/select karta hai.
+
+Simple rule:
+
+Method kisi element par action perform karta hai.
+
+Property vs Method
+
+Ye difference bahut important hai:
+
+heading.innerText
+
+innerText = Property
+
+Lekin:
+
+heading.remove()
+
+remove() = Method
+
+Notice karo:
+
+Property me generally:
+
+propertyName
+
+Method me:
+
+methodName()
+
+() bahut important clue hai.
+
+Important DOM Properties
+1. innerText
+
+Element ke visible text ko read/change karta hai.
+
+<h1 id="heading">Hello</h1>
+let h1 = document.querySelector("#heading");
+
+console.log(h1.innerText);
+
+Output:
+
+Hello
+
+Change:
+
+h1.innerText = "Welcome";
+
+Ab:
+
+Welcome
+2. innerHTML
+
+Element ke andar ka HTML read/change karta hai.
+
+Example:
+
+<div id="box">
+  <p>Hello</p>
+</div>
+
+JavaScript:
+
+let box = document.querySelector("#box");
+
+console.log(box.innerHTML);
+
+Output roughly:
+
+<p>Hello</p>
+
+Change:
+
+box.innerHTML = "<h2>Welcome</h2>";
+
+Ab <div> ke andar <h2> aa jayega.
+
+Difference:
+
+box.innerText = "<h2>Hello</h2>";
+
+page par literally:
+
+<h2>Hello</h2>
+
+dikh sakta hai.
+
+Lekin:
+
+box.innerHTML = "<h2>Hello</h2>";
+
+actual <h2> create karega.
+
+3. value
+
+Mostly input ke andar ki value access karta hai.
+
+HTML:
+
+<input id="name" value="Aman">
+
+JavaScript:
+
+let input = document.querySelector("#name");
+
+console.log(input.value);
+
+Output:
+
+Aman
+
+Change:
+
+input.value = "Rahul";
+4. style
+
+CSS change karne ke liye.
+
+let heading = document.querySelector("h1");
+
+heading.style.color = "red";
+
+Text red ho jayega.
+
+Example:
+
+heading.style.backgroundColor = "yellow";
+heading.style.fontSize = "40px";
+
+Ek important point:
+
+CSS me:
+
+background-color
+
+JavaScript me:
+
+backgroundColor
+
+Use hota hai.
+
+5. id
+
+Element ki id access/change karta hai.
+
+<h1 id="title">Hello</h1>
+let heading = document.querySelector("h1");
+
+console.log(heading.id);
+
+Output:
+
+title
+6. className
+
+Element ki class access/change karta hai.
+
+<p class="text">Hello</p>
+let para = document.querySelector("p");
+
+console.log(para.className);
+
+Output:
+
+text
+Important DOM Methods
+
+Ab methods samjhte hain.
+
+1. getElementById()
+
+ID ke through HTML element select karta hai.
+
+<h1 id="title">Hello</h1>
+let heading = document.getElementById("title");
+
+Notice:
+
+"title"
+
+likha hai, #title nahi.
+
+2. querySelector()
+
+CSS selector ke through pehla matching element select karta hai.
+
+ID:
+
+document.querySelector("#title");
+
+Class:
+
+document.querySelector(".box");
+
+Tag:
+
+document.querySelector("h1");
+
+Agar bahut saare <p> hain:
+
+<p>One</p>
+<p>Two</p>
+<p>Three</p>
+document.querySelector("p");
+
+sirf pehla <p> select karega.
+
+3. querySelectorAll()
+
+Saare matching elements select karta hai.
+
+let paragraphs = document.querySelectorAll("p");
+
+Agar 3 <p> hain to tino milenge.
+
+Example:
+
+console.log(paragraphs);
+4. createElement()
+
+Naya HTML element create karta hai.
+
+let newPara = document.createElement("p");
+
+Ab JavaScript memory me naya <p> bana.
+
+Usme text:
+
+newPara.innerText = "Hello JavaScript";
+
+Lekin abhi page par nahi dikhega.
+
+Page par add karne ke liye:
+
+document.body.appendChild(newPara);
+5. appendChild()
+
+Ek element ke andar dusra element add karta hai.
+
+let para = document.createElement("p");
+
+para.innerText = "Hello";
+
+document.body.appendChild(para);
+
+Ab paragraph page par aa jayega.
+
+6. remove()
+
+Element ko remove karta hai.
+
+let heading = document.querySelector("h1");
+
+heading.remove();
+
+<h1> page se remove ho jayega.
+
+7. setAttribute()
+
+HTML attribute set/change karta hai.
+
+HTML:
+
+<img id="photo">
+
+JavaScript:
+
+let image = document.querySelector("#photo");
+
+image.setAttribute("src", "photo.jpg");
+
+Ab:
+
+<img id="photo" src="photo.jpg">
+
+ho jayega.
+
+8. getAttribute()
+
+Attribute ki value nikalta hai.
+
+let image = document.querySelector("img");
+
+console.log(image.getAttribute("src"));
+
+Agar:
+
+<img src="cat.jpg">
+
+Output:
+
+cat.jpg
+9. addEventListener()
+
+Kisi event par JavaScript code run karne ke liye.
+
+Example button:
+
+<button id="btn">Click Me</button>
+
+JavaScript:
+
+let button = document.querySelector("#btn");
+
+button.addEventListener("click", function () {
+  console.log("Button clicked");
+});
+
+Jab button click hoga:
+
+Button clicked
+
+console me aayega.
+
+Complete Example
+
+HTML:
+
+<h1 id="title">Hello</h1>
+
+<button id="btn">Change Text</button>
+
+JavaScript:
+
+let heading = document.querySelector("#title");
+let button = document.querySelector("#btn");
+
+button.addEventListener("click", function () {
+  heading.innerText = "Welcome";
+});
+
+Ab samjho:
+
+document.querySelector()
+
+Method hai.
+
+button.addEventListener()
+
+Method hai.
+
+heading.innerText
+
+Property hai.
+
+Aur jab button click hoga:
+
+Hello
+
+change hokar:
+
+Welcome
+
+ho jayega.
+
+Ek easy trick
+
+Yaad rakho:
+
+Property = information/value
+
+element.innerText
+element.value
+element.id
+element.style
+
+Method = kaam/action
+
+element.remove()
+element.setAttribute()
+document.querySelector()
+document.createElement()
+
+Aur mostly method ke end me () hota hai.
+
+Ab 5 basic questions
+
+Q1. DOM ka full form kya hai?
+
+A. Document Object Model
+B. Data Object Method
+C. Document Online Model
+
+Q2. innerText kya hai?
+
+A. Method
+B. Property
+C. Variable
+
+Q3. querySelector() kya hai?
+
+A. Property
+B. Method
+C. Object
+
+Q4. Isme method kaunsa hai?
+
+heading.remove();
+
+A. heading
+B. remove()
+C. dono
+
+Q5. querySelector() ek matching element deta hai ya saare?
+
+A. Pehla matching element
+B. Saare elements
+C. Koi nahi */
+    </script>
+</body>
+</html>

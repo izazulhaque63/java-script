@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>array all concepts</title>
+</head>
+<body>
+    <script>
+       /* Bilkul. JavaScript Array ko ekdum basic se, simple Hinglish me samajhte hain — array kya hota hai, kyu use hota hai, syntax, types, indexing, methods, loop, aur important concepts sab.
+
+1. Array kya hota hai?
+
+Array ek aisa container hota hai jisme hum multiple values ko ek hi variable me store kar sakte hain.
+
+Normal variables me:
+
+let student1 = "Ali";
+let student2 = "Rahul";
+let student3 = "Aman";
+
+Agar 100 students ho gaye to 100 variables banana difficult hoga.
+
+Isliye array use karte hain:
+
+let students = ["Ali", "Rahul", "Aman"];
+
+Yahan students ek array hai aur iske andar 3 values hain.
+
+2. Array ka basic syntax
+let arrayName = [value1, value2, value3];
+
+Example:
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+Isko visually samjho:
+
+fruits
+   ↓
+["Apple", "Mango", "Banana"]
+
+Array ke andar values ko elements kehte hain.
+
+Yahan:
+
+"Apple" = element
+"Mango" = element
+"Banana" = element
+3. Array kyu use hota hai?
+
+Maan lo hume 5 marks store karne hain.
+
+Without array:
+
+let mark1 = 80;
+let mark2 = 75;
+let mark3 = 90;
+let mark4 = 65;
+let mark5 = 88;
+
+Array se:
+
+let marks = [80, 75, 90, 65, 88];
+
+Array se data:
+
+manage karna easy hota hai
+loop lagana easy hota hai
+search karna easy hota hai
+add/remove karna easy hota hai
+4. Array indexing
+
+JavaScript me array ka index 0 se start hota hai, 1 se nahi.
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+Index:
+
+Value:   Apple    Mango    Banana
+Index:     0        1        2
+
+Isliye:
+
+console.log(fruits[0]);
+
+Output:
+
+Apple
+console.log(fruits[1]);
+
+Output:
+
+Mango
+console.log(fruits[2]);
+
+Output:
+
+Banana
+Important
+
+First element:
+
+array[0]
+
+Second:
+
+array[1]
+
+Third:
+
+array[2]
+5. Agar galat index access karein?
+let fruits = ["Apple", "Mango"];
+
+console.log(fruits[5]);
+
+Output:
+
+undefined
+
+Kyun?
+
+Kyuki index 5 par koi value hai hi nahi.
+
+6. Array me different data types rakh sakte hain
+
+JavaScript array ki ek important baat hai ki iske andar alag-alag data types ho sakte hain.
+
+let data = [
+  "Ali",
+  25,
+  true,
+  null
+];
+
+Yahan:
+
+"Ali" → String
+25 → Number
+true → Boolean
+null → Null
+
+Technically JavaScript me ye allowed hai.
+
+Lekin real projects me usually related data hi ek array me rakhna better hota hai.
+
+Example:
+
+let marks = [70, 80, 90];
+
+rather than:
+
+let marks = [70, "Ali", true, 90];
+7. Array banana ke 2 common ways
+Method 1: Array literal
+
+Sabse common:
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+Ye recommended hai.
+
+Method 2: new Array()
+let fruits = new Array("Apple", "Mango", "Banana");
+
+Ye bhi valid hai.
+
+Lekin mostly:
+
+[]
+
+wala syntax use hota hai.
+
+8. Empty array
+
+Array initially empty bhi ho sakta hai.
+
+let fruits = [];
+
+Baad me values add kar sakte hain.
+
+fruits.push("Apple");
+
+Ab:
+
+console.log(fruits);
+
+Output:
+
+["Apple"]
+9. Array ki value change karna
+let fruits = ["Apple", "Mango", "Banana"];
+
+Agar "Mango" ko "Orange" banana hai:
+
+fruits[1] = "Orange";
+
+Ab array:
+
+console.log(fruits);
+
+Output:
+
+["Apple", "Orange", "Banana"]
+
+Array ke elements change ho sakte hain.
+
+10. Array length
+
+.length batata hai array ke andar total kitne elements hain.
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits.length);
+
+Output:
+
+3
+
+Important difference:
+
+Length = 3
+Last index = 2
+
+Kyunki index 0 se start hota hai.
+
+Formula:
+
+lastIndex = array.length - 1;
+
+Example:
+
+console.log(fruits[fruits.length - 1]);
+
+Output:
+
+Banana
+
+Ye last element nikalne ka common trick hai.
+
+11. Array ke important methods
+
+Methods basically built-in functions hain jo array ke saath kaam karte hain.
+
+Sabse pehle 4 extremely important methods:
+
+push()
+pop()
+shift()
+unshift()
+12. push()
+
+push() array ke end me value add karta hai.
+
+let fruits = ["Apple", "Mango"];
+
+fruits.push("Banana");
+
+console.log(fruits);
+
+Output:
+
+["Apple", "Mango", "Banana"]
+
+Yaad rakho:
+
+push = end me add
+13. pop()
+
+pop() array ka last element remove karta hai.
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.pop();
+
+console.log(fruits);
+
+Output:
+
+["Apple", "Mango"]
+
+Yaad rakho:
+
+pop = end se remove
+14. unshift()
+
+unshift() array ke starting me value add karta hai.
+
+let fruits = ["Mango", "Banana"];
+
+fruits.unshift("Apple");
+
+console.log(fruits);
+
+Output:
+
+["Apple", "Mango", "Banana"]
+15. shift()
+
+shift() array ka first element remove karta hai.
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.shift();
+
+console.log(fruits);
+
+Output:
+
+["Mango", "Banana"]
+
+Easy table:
+
+Method	Kaam
+push()	End me add
+pop()	End se remove
+unshift()	Start me add
+shift()	Start se remove
+16. Array ko loop se access karna
+
+Suppose:
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+Hum manually kar sakte hain:
+
+console.log(fruits[0]);
+console.log(fruits[1]);
+console.log(fruits[2]);
+
+Lekin agar 100 elements hon?
+
+Loop use karenge.
+
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+
+Step by step:
+
+i = 0
+
+to:
+
+fruits[0]
+
+Apple.
+
+Then:
+
+i = 1
+
+to:
+
+fruits[1]
+
+Mango.
+
+Then:
+
+i = 2
+
+to:
+
+fruits[2]
+
+Banana.
+
+17. for...of loop
+
+Array ke liye ye bahut simple hota hai:
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+
+Output:
+
+Apple
+Mango
+Banana
+
+Isme index manually manage nahi karna padta.
+
+18. includes()
+
+Check karta hai ki koi value array me hai ya nahi.
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits.includes("Mango"));
+
+Output:
+
+true
+console.log(fruits.includes("Orange"));
+
+Output:
+
+false
+19. indexOf()
+
+Kisi element ka index find karta hai.
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits.indexOf("Mango"));
+
+Output:
+
+1
+
+Agar element nahi mile:
+
+console.log(fruits.indexOf("Orange"));
+
+Output:
+
+-1
+20. slice()
+
+Array ka ek portion copy karta hai.
+
+let fruits = ["Apple", "Mango", "Banana", "Orange"];
+
+let newFruits = fruits.slice(1, 3);
+
+console.log(newFruits);
+
+Output:
+
+["Mango", "Banana"]
+
+Important:
+
+slice(start, end)
+
+end wala index include nahi hota.
+
+Yahan:
+
+1 included
+2 included
+3 excluded
+21. splice()
+
+splice() original array ko change karta hai.
+
+Example:
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.splice(1, 1);
+
+console.log(fruits);
+
+Output:
+
+["Apple", "Banana"]
+
+Syntax:
+
+array.splice(startIndex, deleteCount);
+
+Yahan:
+
+splice(1, 1)
+
+means:
+
+index 1 se start karo
+1 element delete karo
+22. splice se value add bhi kar sakte hain
+let fruits = ["Apple", "Banana"];
+
+fruits.splice(1, 0, "Mango");
+
+console.log(fruits);
+
+Output:
+
+["Apple", "Mango", "Banana"]
+
+Yahan:
+
+splice(1, 0, "Mango")
+
+means:
+
+index 1 par jao
+0 items delete karo
+"Mango" add karo
+23. slice vs splice
+
+Ye interview aur exam dono me important hai.
+
+slice
+↓
+copy nikalta hai
+original array usually change nahi karta
+splice
+↓
+array ke andar add/remove karta hai
+original array change karta hai
+
+Example:
+
+let arr = [10, 20, 30, 40];
+
+let x = arr.slice(1, 3);
+
+console.log(x);
+console.log(arr);
+
+Output:
+
+[20, 30]
+[10, 20, 30, 40]
+
+Original same hai.
+
+24. concat()
+
+Do ya zyada arrays ko combine karta hai.
+
+let arr1 = [1, 2];
+let arr2 = [3, 4];
+
+let result = arr1.concat(arr2);
+
+console.log(result);
+
+Output:
+
+[1, 2, 3, 4]
+25. join()
+
+Array ko string me convert karta hai.
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits.join("-"));
+
+Output:
+
+Apple-Mango-Banana
+
+Example:
+
+fruits.join(", ");
+
+Output:
+
+Apple, Mango, Banana
+26. reverse()
+
+Array ka order reverse karta hai.
+
+let numbers = [1, 2, 3, 4];
+
+numbers.reverse();
+
+console.log(numbers);
+
+Output:
+
+[4, 3, 2, 1]
+27. Array ke types kya hote hain?
+
+Strictly JavaScript me aise official array "types" nahi hote jaise integer array, string array.
+
+Lekin learning ke liye arrays ko data ke according samajh sakte hain.
+
+1. Number Array
+let numbers = [10, 20, 30];
+2. String Array
+let names = ["Ali", "Rahul", "Aman"];
+3. Boolean Array
+let values = [true, false, true];
+4. Mixed Array
+let data = ["Ali", 25, true, null];
+5. Nested Array
+
+Array ke andar array.
+
+let data = [
+  [1, 2],
+  [3, 4]
+];
+6. Array of Objects
+let students = [
+  { name: "Ali", age: 20 },
+  { name: "Rahul", age: 22 }
+];
+
+Real projects me array of objects bahut common hai.
+
+28. Nested array / 2D Array
+
+Example:
+
+let numbers = [
+  [10, 20],
+  [30, 40]
+];
+
+Visual:
+
+numbers
+
+index 0 → [10, 20]
+index 1 → [30, 40]
+
+Agar 30 access karna hai:
+
+console.log(numbers[1][0]);
+
+Samjho:
+
+numbers[1]
+
+gives:
+
+[30, 40]
+
+Then:
+
+[0]
+
+gives:
+
+30
+29. Array of Objects
+
+Ye bahut important concept hai.
+
+let students = [
+  {
+    name: "Ali",
+    age: 20
+  },
+  {
+    name: "Rahul",
+    age: 22
+  }
+];
+
+Ali ka name:
+
+console.log(students[0].name);
+
+Output:
+
+Ali
+
+Rahul ki age:
+
+console.log(students[1].age);
+
+Output:
+
+22
+
+Real-world APIs me isi type ka data bahut milega.
+
+30. Array actually kis data type ka hota hai?
+
+Interesting JavaScript concept:
+
+let fruits = ["Apple", "Mango"];
+
+console.log(typeof fruits);
+
+Output:
+
+object
+
+JavaScript me arrays technically special type of object hain.
+
+Isliye array check karne ke liye:
+
+Array.isArray(fruits);
+
+Output:
+
+true
+
+Example:
+
+let fruits = ["Apple"];
+
+console.log(Array.isArray(fruits));
+
+Output:
+
+true
+31. const ke saath array
+
+Ye concept bahut important hai.
+
+const fruits = ["Apple", "Mango"];
+
+Aap ye kar sakte ho:
+
+fruits.push("Banana");
+
+Aur:
+
+fruits[0] = "Orange";
+
+Ye allowed hai.
+
+Lekin:
+
+fruits = ["Grapes"];
+
+❌ Error.
+
+Kyun?
+
+const me variable ko completely new array assign nahi kar sakte.
+
+Lekin existing array ke elements modify ho sakte hain.
+
+32. Advanced important array methods
+
+Baad me bahut use honge:
+
+forEach()
+map()
+filter()
+find()
+some()
+every()
+reduce()
+sort()
+
+Inko ekdum short me samjho.
+
+forEach()
+
+Har element par kaam karta hai.
+
+let numbers = [10, 20, 30];
+
+numbers.forEach(function(number) {
+  console.log(number);
+});
+
+Output:
+
+10
+20
+30
+map()
+
+Har element par operation karke new array banata hai.
+
+let numbers = [1, 2, 3];
+
+let doubled = numbers.map(function(number) {
+  return number * 2;
+});
+
+console.log(doubled);
+
+Output:
+
+[2, 4, 6]
+filter()
+
+Condition ke basis par values filter karta hai.
+
+let numbers = [10, 20, 30, 40];
+
+let result = numbers.filter(function(number) {
+  return number > 20;
+});
+
+console.log(result);
+
+Output:
+
+[30, 40]
+find()
+
+Condition match karne wali first value deta hai.
+
+let numbers = [10, 20, 30, 40];
+
+let result = numbers.find(function(number) {
+  return number > 20;
+});
+
+console.log(result);
+
+Output:
+
+30
+
+Dhyan do:
+
+filter():
+
+[30, 40]
+
+find():
+
+30
+33. Important summary
+
+Array:
+
+let fruits = ["Apple", "Mango", "Banana"];
+
+Access:
+
+fruits[0]
+
+Change:
+
+fruits[1] = "Orange";
+
+Length:
+
+fruits.length
+
+Add end:
+
+fruits.push("Grapes");
+
+Remove end:
+
+fruits.pop();
+
+Add start:
+
+fruits.unshift("Grapes");
+
+Remove start:
+
+fruits.shift();
+
+Search:
+
+fruits.includes("Apple");
+
+Index:
+
+fruits.indexOf("Apple");
+Sabse important rule yaad rakho
+ARRAY = ek variable ke andar multiple values
+
+Aur:
+
+INDEX HAMESHA 0 SE START HOTA HAI
+
+Example:
+
+let names = ["Ali", "Aman", "Rahul"];
+Ali   → index 0
+Aman  → index 1
+Rahul → index 2 */
+    </script>
+</body>
+</html>

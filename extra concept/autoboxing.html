@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>autoboxing detail all concetp</title>
+</head>
+<body>
+    <script>
+       /* JavaScript me autoboxing ka matlab hai: jab hum kisi primitive value par object jaisi property ya method use karte hain, JavaScript temporarily us primitive ko corresponding object wrapper me convert kar deta hai.
+
+//Example:
+
+let name = "Rahul";
+
+console.log(name.length);
+
+//Yahan "Rahul" technically ek primitive string hai, object nahi.
+
+//Lekin humne:
+
+name.length
+
+//use kiya. JavaScript internally kuch aisa temporarily karta hai:
+
+let temp = new String("Rahul");
+console.log(temp.length);
+
+Output:
+
+5
+
+//Isi temporary conversion ko autoboxing kehte hain.
+
+//Ek aur example
+let name = "rahul";
+
+console.log(name.toUpperCase());
+
+Output:
+
+RAHUL
+
+name primitive string hai, phir bhi .toUpperCase() method kaise chal gaya?
+
+Because JavaScript temporarily:
+
+"rahul"
+   ↓
+String object wrapper
+   ↓
+.toUpperCase()
+   ↓
+result
+
+banata hai.
+
+Kaunse primitives me autoboxing hoti hai?
+
+Common examples:
+
+String
+Number
+Boolean
+
+Example Number:
+
+let num = 10;
+
+console.log(num.toString());
+
+Output:
+
+10
+
+Yahan num primitive number hai.
+
+JavaScript internally temporarily usse Number object jaisa treat karta hai, isliye:
+
+num.toString()
+
+chal jata hai.
+
+Boolean me:
+
+let isLoggedIn = true;
+
+console.log(isLoggedIn.toString());
+
+Output:
+
+true
+Important: primitive object nahi ban jata permanently
+
+Ye bahut important hai.
+
+let name = "Rahul";
+
+console.log(typeof name);
+
+Output:
+
+string
+
+Autoboxing ke baad bhi name primitive hi rehta hai.
+
+JavaScript sirf method/property use karte waqt temporary wrapper object banata hai.
+
+Simple flow:
+
+Primitive value
+     ↓
+Temporary wrapper object
+     ↓
+Property / Method use
+     ↓
+Wrapper remove
+     ↓
+Primitive remains primitive
+Primitive vs wrapper object
+
+Ye dono same nahi hain:
+
+let a = "Rahul";
+let b = new String("Rahul");
+
+Check:
+
+console.log(typeof a);
+console.log(typeof b);
+
+Output:
+
+string
+object
+
+So:
+
+"Rahul"
+
+primitive hai.
+
+Lekin:
+
+new String("Rahul")
+
+actual object hai.
+
+Normally hume ye nahi likhna chahiye:
+
+let name = new String("Rahul");
+
+Better:
+
+let name = "Rahul";
+
+JavaScript zarurat padne par autoboxing khud kar lega.
+
+Ek simple real-life analogy
+
+Socho primitive "Rahul" ek normal aadmi hai.
+
+Usko .toUpperCase() naam ki service chahiye.
+
+JavaScript temporarily usko ek special jacket pehna deta hai:
+
+"Rahul"
+   ↓
+String wrapper
+   ↓
+.toUpperCase()
+   ↓
+"RAHUL"
+
+Kaam khatam hote hi jacket remove.
+
+Quick test
+
+Q1.
+
+let city = "Delhi";
+console.log(city.length);
+
+city kya hai?
+
+A. Object
+B. Primitive string
+C. Array
+
+Q2. Primitive string par .length chalne ka main reason?
+
+A. Autoboxing
+B. Loop
+C. Hoisting
+
+Q3.
+
+let num = 25;
+console.log(num.toString());
+
+Yahan JavaScript temporarily kis wrapper ka use karega?
+
+A. String
+B. Boolean
+C. Number
+
+Q4. Autoboxing ke baad primitive permanently object ban jata hai?
+
+A. Yes
+B. No */
+    </script>
+</body>
+</html>

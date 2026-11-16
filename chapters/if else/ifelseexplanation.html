@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>if else detail explanation</title>
+</head>
+<body>
+    <script>
+        /*Bilkul. JavaScript me if...else ka use decision making ke liye hota hai.
+
+Simple words me:
+
+Agar condition true hai → ek code chalega
+Agar condition false hai → doosra code chalega.
+
+1. Sabse basic concept
+
+Real-life example:
+
+Agar age 18 ya usse zyada hai → vote kar sakte ho.
+Nahi hai → vote nahi kar sakte.
+
+JavaScript me:
+
+let age = 20;
+
+if (age >= 18) {
+    console.log("You can vote");
+} else {
+    console.log("You cannot vote");
+}
+
+Output:
+
+You can vote
+2. if statement
+
+Sabse pehle sirf if samjho.
+
+Syntax:
+
+if (condition) {
+    // code
+}
+
+Example:
+
+let age = 20;
+
+if (age >= 18) {
+    console.log("Adult");
+}
+Line by line
+let age = 20;
+
+Variable age banaya aur value 20 rakhi.
+
+if (age >= 18)
+
+JavaScript check karega:
+
+20 >= 18
+
+Ye true hai.
+
+Isliye { } ke andar ka code chalega:
+
+console.log("Adult");
+
+Output:
+
+Adult
+3. Agar condition false ho gayi?
+let age = 15;
+
+if (age >= 18) {
+    console.log("Adult");
+}
+
+JavaScript check karega:
+
+15 >= 18
+
+Result:
+
+false
+
+Isliye kuch print nahi hoga.
+
+Yahi problem solve karne ke liye else use hota hai.
+
+4. if...else
+
+Syntax:
+
+if (condition) {
+    // condition true hone par
+} else {
+    // condition false hone par
+}
+
+Example:
+
+let age = 15;
+
+if (age >= 18) {
+    console.log("Adult");
+} else {
+    console.log("Minor");
+}
+
+JavaScript check karega:
+
+15 >= 18
+
+False hai.
+
+Isliye else chalega.
+
+Output:
+
+Minor
+Flow ko aise samjho
+          condition
+              |
+        age >= 18 ?
+          /       \
+       true       false
+        |           |
+     "Adult"      "Minor"
+5. Comparison operators
+
+if ke andar mostly comparison kiya jata hai.
+
+Operator	Meaning	Example
+>	greater than	age > 18
+<	less than	age < 18
+>=	greater than or equal	age >= 18
+<=	less than or equal	age <= 18
+==	value compare	5 == "5"
+===	value + datatype compare	5 === "5"
+!=	not equal	5 != 10
+!==	strict not equal	5 !== "5"
+6. == aur === ka difference
+
+Ye JavaScript me bahut important hai.
+
+Example:
+
+console.log(5 == "5");
+
+Output:
+
+true
+
+Kyun?
+
+== mainly value compare karta hai.
+
+JavaScript "5" string ko number me convert kar sakta hai.
+
+Lekin:
+
+console.log(5 === "5");
+
+Output:
+
+false
+
+Kyunki:
+
+5
+
+Number hai.
+
+Aur:
+
+"5"
+
+String hai.
+
+=== check karta hai:
+
+value same?
++
+datatype same?
+
+Isliye generally JavaScript me:
+
+===
+
+use karna better practice hai.
+
+7. if...else if...else
+
+Ab maan lo sirf do conditions nahi hain.
+
+Marks ke basis par grade banana hai:
+
+90+ → A
+75+ → B
+50+ → C
+below 50 → Fail
+
+Code:
+
+let marks = 80;
+
+if (marks >= 90) {
+    console.log("Grade A");
+} else if (marks >= 75) {
+    console.log("Grade B");
+} else if (marks >= 50) {
+    console.log("Grade C");
+} else {
+    console.log("Fail");
+}
+
+Output:
+
+Grade B
+Working
+
+JavaScript top se bottom check karta hai.
+
+Sabse pehle:
+
+marks >= 90
+
+Means:
+
+80 >= 90
+
+False.
+
+Next:
+
+marks >= 75
+
+Means:
+
+80 >= 75
+
+True.
+
+To output:
+
+Grade B
+
+Ab important point:
+
+Jaise hi ek condition true milti hai, baaki else if check nahi hote.
+
+8. Isliye condition ka order important hai
+
+Galat example:
+
+let marks = 95;
+
+if (marks >= 50) {
+    console.log("Grade C");
+} else if (marks >= 75) {
+    console.log("Grade B");
+} else if (marks >= 90) {
+    console.log("Grade A");
+}
+
+Output kya hoga?
+
+Grade C
+
+95 ke liye Grade A hona chahiye tha, lekin first condition:
+
+95 >= 50
+
+already true ho gayi.
+
+Isliye JavaScript wahi stop kar deta hai.
+
+Correct:
+
+if (marks >= 90) {
+    console.log("Grade A");
+} else if (marks >= 75) {
+    console.log("Grade B");
+} else if (marks >= 50) {
+    console.log("Grade C");
+} else {
+    console.log("Fail");
+}
+
+Rule yaad rakho:
+
+Range wali conditions me usually highest/specific condition pehle likho.
+
+9. Multiple conditions — &&
+
+&& means AND.
+
+Dono conditions true honi chahiye.
+
+Example:
+
+Movie dekhne ke liye:
+
+age >= 18
+AND
+ticket hona chahiye
+
+Code:
+
+let age = 20;
+let hasTicket = true;
+
+if (age >= 18 && hasTicket === true) {
+    console.log("You can enter");
+} else {
+    console.log("Entry denied");
+}
+
+&& ka rule:
+
+true && true = true
+true && false = false
+false && true = false
+false && false = false
+
+Simple:
+
+AND me sab conditions true chahiye.
+
+10. || OR operator
+
+|| means OR.
+
+Koi ek condition true ho to result true.
+
+Example:
+
+let isAdmin = false;
+let isManager = true;
+
+if (isAdmin === true || isManager === true) {
+    console.log("Access granted");
+} else {
+    console.log("Access denied");
+}
+
+Output:
+
+Access granted
+
+Because manager true hai.
+
+Rule:
+
+true || true = true
+true || false = true
+false || true = true
+false || false = false
+
+Simple:
+
+OR me ek bhi condition true hui to kaam ho jayega.
+
+11. ! NOT operator
+
+! means opposite.
+
+let isLoggedIn = false;
+
+if (!isLoggedIn) {
+    console.log("Please login");
+}
+
+isLoggedIn hai:
+
+false
+
+Lekin:
+
+!false
+
+becomes:
+
+true
+
+Isliye output:
+
+Please login
+12. Boolean values direct use kar sakte hain
+
+Ye:
+
+let isLoggedIn = true;
+
+if (isLoggedIn === true) {
+    console.log("Welcome");
+}
+
+Correct hai.
+
+Lekin shorter aur common way:
+
+let isLoggedIn = true;
+
+if (isLoggedIn) {
+    console.log("Welcome");
+}
+
+Dono same kaam karenge.
+
+13. Nested if
+
+if ke andar bhi if laga sakte ho.
+
+Isse nested if kehte hain.
+
+Example:
+
+let age = 20;
+let hasID = true;
+
+if (age >= 18) {
+
+    if (hasID) {
+        console.log("Entry allowed");
+    } else {
+        console.log("ID required");
+    }
+
+} else {
+    console.log("You are underage");
+}
+
+Working:
+
+Pehle:
+
+age >= 18
+
+True hua.
+
+Phir andar:
+
+hasID
+
+check hua.
+
+14. User input ke saath if...else
+
+Browser me prompt() se input le sakte ho.
+
+let age = prompt("Enter your age");
+
+if (age >= 18) {
+    console.log("You are eligible");
+} else {
+    console.log("You are not eligible");
+}
+
+Lekin prompt() normally string deta hai.
+
+Example:
+
+"20"
+
+Agar proper number banana ho:
+
+let age = Number(prompt("Enter your age"));
+
+if (age >= 18) {
+    console.log("You are eligible");
+} else {
+    console.log("You are not eligible");
+}
+15. Even / Odd check
+
+Bahut important beginner example.
+
+let number = 10;
+
+if (number % 2 === 0) {
+    console.log("Even");
+} else {
+    console.log("Odd");
+}
+
+Yahan:
+
+number % 2
+
+remainder check karta hai.
+
+10 ÷ 2
+remainder = 0
+
+Isliye:
+
+10 % 2 === 0
+
+true.
+
+Output:
+
+Even
+
+Agar:
+
+let number = 7;
+
+Then:
+
+7 % 2 = 1
+
+Output:
+
+Odd
+16. Positive, negative aur zero
+let number = -5;
+
+if (number > 0) {
+    console.log("Positive");
+} else if (number < 0) {
+    console.log("Negative");
+} else {
+    console.log("Zero");
+}
+
+Output:
+
+Negative
+17. if me actually true/false check hota hai
+
+Important concept:
+
+if (true) {
+    console.log("Hello");
+}
+
+Output:
+
+Hello
+
+Lekin:
+
+if (false) {
+    console.log("Hello");
+}
+
+Kuch nahi chalega.
+
+Isliye jab hum likhte hain:
+
+if (age >= 18)
+
+JavaScript actually expression calculate karta hai:
+
+20 >= 18
+
+Result:
+
+true
+
+Phir internally ye jaisa ban jata hai:
+
+if (true)
+18. Truthy aur Falsy values
+
+JavaScript me sirf literal true aur false hi nahi hote.
+
+Kuch values automatically false treat hoti hain.
+
+Important falsy values:
+
+false
+0
+""
+null
+undefined
+NaN
+
+Example:
+
+let username = "";
+
+if (username) {
+    console.log("Username exists");
+} else {
+    console.log("Username is empty");
+}
+
+Output:
+
+Username is empty
+
+Kyunki empty string:
+
+""
+
+falsy hoti hai.
+
+Lekin:
+
+let username = "Rahul";
+
+String non-empty hai, therefore truthy.
+
+Output:
+
+Username exists
+19. Curly braces {} ka role
+
+Example:
+
+if (age >= 18) {
+    console.log("Adult");
+    console.log("You can vote");
+}
+
+Ye dono statements if ke andar hain.
+
+Technically single statement me braces omit ho sakti hain:
+
+if (age >= 18)
+    console.log("Adult");
+
+Lekin beginner ke liye aur professional coding me braces use karna better hai:
+
+if (age >= 18) {
+    console.log("Adult");
+}
+20. Common mistake — = aur ===
+
+Galat:
+
+let age = 18;
+
+if (age = 18) {
+    console.log("Yes");
+}
+
+Yahan:
+
+=
+
+comparison nahi hai.
+
+Ye assignment operator hai.
+
+Matlab age ke andar 18 assign kar diya.
+
+Comparison ke liye:
+
+if (age === 18) {
+    console.log("Yes");
+}
+
+Yaad rakho:
+
+=     assign value
+==    loose comparison
+===   strict comparison
+21. Common mistake — semicolon
+
+Galat:
+
+if (age >= 18); {
+    console.log("Adult");
+}
+
+Notice:
+
+if (age >= 18);
+
+ke baad semicolon laga diya.
+
+Isse if wahi end ho jata hai.
+
+Correct:
+
+if (age >= 18) {
+    console.log("Adult");
+}
+22. Common mistake — overlapping conditions
+
+Galat:
+
+let age = 25;
+
+if (age >= 18) {
+    console.log("Adult");
+}
+
+if (age >= 21) {
+    console.log("21+");
+}
+
+Output:
+
+Adult
+21+
+
+Kyunki ye 2 independent if statements hain.
+
+Agar sirf ek result chahiye:
+
+if (age >= 21) {
+    console.log("21+");
+} else if (age >= 18) {
+    console.log("Adult");
+}
+23. Independent if vs else if
+
+Ye difference bahut important hai.
+
+Case 1
+if (condition1) {
+}
+
+if (condition2) {
+}
+
+Dono independently check honge.
+
+Dono true hue to dono chalenge.
+
+Case 2
+if (condition1) {
+} else if (condition2) {
+}
+
+Jaise hi first true mil gaya, remaining chain skip.
+
+24. Ternary operator
+
+Simple if...else ko short me likhne ke liye ternary operator hota hai.
+
+Normal:
+
+let age = 20;
+let result;
+
+if (age >= 18) {
+    result = "Adult";
+} else {
+    result = "Minor";
+}
+
+console.log(result);
+
+Ternary:
+
+let age = 20;
+
+let result = age >= 18 ? "Adult" : "Minor";
+
+console.log(result);
+
+Syntax:
+
+condition ? trueValue : falseValue
+
+Abhi beginner ho to pehle normal if...else strong karo. Ternary baad me automatically easy lagega.
+
+25. Complete practical example
+
+Login system:
+
+let username = "admin";
+let password = "1234";
+
+if (username === "admin" && password === "1234") {
+    console.log("Login successful");
+} else {
+    console.log("Invalid username or password");
+}
+
+Working:
+
+username === "admin"
+        ↓
+      true
+
+password === "1234"
+        ↓
+      true
+
+true && true
+        ↓
+      true
+
+Login successful
+if...else ke main types
+
+Beginner level par ye 5 yaad rakho:
+
+// 1. Simple if
+if (condition) {
+}
+
+
+// 2. if else
+if (condition) {
+} else {
+}
+
+
+// 3. if else-if else
+if (condition1) {
+} else if (condition2) {
+} else {
+}
+
+
+// 4. Nested if
+if (condition1) {
+    if (condition2) {
+    }
+}
+
+
+// 5. Multiple conditions
+if (condition1 && condition2) {
+}
+Ek line me pura concept
+if       → agar
+else if  → warna agar
+else     → warna
+&&       → aur
+||       → ya
+!        → nahi / opposite
+Ab 3 checking questions karo
+
+Q1. Output kya hoga?
+
+let age = 17;
+
+if (age >= 18) {
+    console.log("Adult");
+} else {
+    console.log("Minor");
+}
+
+A) Adult
+B) Minor
+C) Error
+
+Q2. Output kya hoga?
+
+let marks = 85;
+
+if (marks >= 90) {
+    console.log("A");
+} else if (marks >= 75) {
+    console.log("B");
+} else {
+    console.log("C");
+}
+
+A) A
+B) B
+C) C
+
+Q3. Isme kya output aayega?
+
+let age = 20;
+let hasID = false;
+
+if (age >= 18 && hasID) {
+    console.log("Allowed");
+} else {
+    console.log("Not Allowed");
+}
+
+A) Allowed
+B) Not Allowed
+C) Error*/
+    </script>
+</body>
+</html>

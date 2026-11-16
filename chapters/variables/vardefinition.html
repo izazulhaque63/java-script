@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>variable definition</title>
+</head>
+<body>
+   <!-- <P>1. Variable kya hota hai?
+
+Variable ko aap ek dabba / container samjho jisme hum koi value rakhte hain.
+
+Example:
+
+let age = 21;
+
+Isme:
+
+let → JavaScript ko bol rahe hain ki variable bana raha hoon
+age → variable ka naam
+= → value assign karne ke liye
+21 → value
+; → statement khatam
+
+So simple language me:
+
+Variable = kisi value ko naam dekar memory me store karna.
+
+2. Variable ki zarurat kyu hoti hai?
+
+Maan lo hume baar-baar kisi person's age use karni hai.
+
+Without variable:
+
+console.log(21);
+console.log(21 + 5);
+console.log(21 - 2);
+
+Agar age change hokar 22 ho gayi, toh har jagah manually change karna padega.
+
+Variable ke saath:
+
+let age = 21;
+
+console.log(age);
+console.log(age + 5);
+console.log(age - 2);
+
+Ab bas:
+
+age = 22;
+
+kar diya, baaki jagah automatically latest value use hogi.
+
+3. Real-life example
+
+Socho ek box hai:
+
+Box Name: age
+Inside Box: 21
+
+JavaScript me:
+
+let age = 21;
+
+Ek aur:
+
+let name = "Lydia";
+
+Socho:
+
+Box Name: name
+Inside Box: Lydia
+4. Variable banane ka basic syntax
+
+General syntax:
+
+keyword variableName = value;
+
+Example:
+
+let age = 21;
+const country = "India";
+var score = 100;
+
+JavaScript me variables declare karne ke 3 main keywords hain:
+
+var
+let
+const
+
+Modern JavaScript me mostly:
+
+let
+const
+
+use hote hain.
+
+5. let kya hota hai?
+
+let tab use karte hain jab value future me change ho sakti hai.
+
+Example:
+
+let age = 21;
+
+console.log(age);
+
+Output:
+
+21
+
+Ab age change kar sakte hain:
+
+let age = 21;
+
+age = 22;
+
+console.log(age);
+
+Output:
+
+22
+
+Dhyan do:
+
+age = 22;
+
+me dubara let nahi likha.
+
+Kyun?
+
+Kyuki variable pehle hi ban chuka hai.
+
+Correct:
+let age = 21;
+age = 22;
+Wrong:
+let age = 21;
+let age = 22;
+
+Same scope me let variable ko dobara declare nahi kar sakte.
+
+6. const kya hota hai?
+
+const ka matlab roughly constant.
+
+Jiski value ko baad me reassign nahi karna hai.
+
+Example:
+
+const birthYear = 2000;
+
+Ab:
+
+birthYear = 2001;
+
+karne ki koshish karoge toh error aayega.
+
+Example:
+
+const country = "India";
+
+country = "Saudi Arabia";
+
+❌ Error
+
+Isliye generally:
+
+Value change hogi → let
+Value reassign nahi hogi → const
+
+7. var kya hota hai?
+
+Purane JavaScript code me variables banane ke liye mostly var use hota tha.
+
+Example:
+
+var age = 21;
+
+Value change:
+
+var age = 21;
+
+age = 22;
+
+console.log(age);
+
+Output:
+
+22
+
+Lekin modern JavaScript me usually var avoid kiya jata hai.
+
+Prefer:
+
+let
+const
+
+Kyunki var ke scope aur hoisting ka behaviour beginners ke liye confusing ho sakta hai.
+
+Hum aage scope aur hoisting me ise detail me samjhenge.
+
+8. var, let, const ka easiest difference
+Feature	var	let	const
+Variable bana sakte hain	✅	✅	✅
+Value change kar sakte hain	✅	✅	❌
+Same naam se redeclare	✅	❌	❌
+Modern JS me recommended	Usually no	✅	✅
+
+Example:
+
+var
+var age = 21;
+age = 22;
+
+var age = 25;
+
+Allowed.
+
+let
+let age = 21;
+age = 22;
+
+Allowed.
+
+Lekin:
+
+let age = 21;
+let age = 22;
+
+❌ Error.
+
+const
+const age = 21;
+age = 22;
+
+❌ Error.
+
+9. Declaration kya hota hai?
+
+Jab variable create karte hain, use declaration kehte hain.
+
+Example:
+
+let age;
+
+Iska matlab:
+
+age naam ka variable bana diya.
+
+Lekin abhi value nahi di.
+
+10. Assignment kya hota hai?
+
+Variable me value dalna assignment kehlata hai.
+
+age = 21;
+
+Yaha 21 ko age me assign kiya.
+
+So:
+
+let age;
+age = 21;
+
+First line:
+
+let age;
+
+→ Declaration
+
+Second:
+
+age = 21;
+
+→ Assignment
+
+11. Initialization kya hota hai?
+
+Variable declare karte time hi initial value dena initialization kehlata hai.
+
+let age = 21;
+
+Yaha declaration + initialization ek saath ho raha hai.
+
+let age = 21;
+    ↑     ↑
+ variable value
+12. = ka meaning
+
+Bahut important.
+
+JavaScript me:
+
+=
+
+ka matlab mathematical "equal to" nahi hota.
+
+Iska matlab hai:
+
+Right-side wali value ko left-side variable me assign karo.
+
+Example:
+
+let age = 21;
+
+Matlab:
+
+21 ko age ke andar store karo.
+
+Isi wajah se ye valid hai:
+
+let age = 20;
+
+age = age + 1;
+
+Mathematics me:
+
+age = age + 1
+
+weird lagega.
+
+Lekin programming me matlab:
+
+Current age nikalo → 20
+20 + 1 → 21
+21 ko wapas age me store karo
+
+Final:
+
+age = 21;
+13. Variable me kya-kya store kar sakte hain?
+
+Bahut kuch.
+
+Number
+let age = 21;
+let price = 99.99;
+String / Text
+let name = "Imam";
+
+Text ko quotes me likhna hota hai:
+
+"Imam"
+
+ya:
+
+'Imam'
+Boolean
+
+Sirf:
+
+true
+false
+
+Example:
+
+let isLoggedIn = true;
+Undefined
+let city;
+
+Agar value nahi di:
+
+console.log(city);
+
+Output:
+
+undefined
+Null
+let selectedUser = null;
+
+Matlab intentionally:
+
+Filhaal koi value nahi hai.
+
+Array
+let fruits = ["Apple", "Mango", "Banana"];
+Object
+let user = {
+  name: "Imam",
+  age: 31
+};
+
+In data types ko baad me individually detail me padhenge.
+
+14. Variable ko use kaise karte hain?
+
+Example:
+
+let name = "Imam";
+
+console.log(name);
+
+Output:
+
+Imam
+
+JavaScript name dekhta hai aur us variable ke andar jo value hai wo use karta hai.
+
+15. Calculation me variables
+let price = 100;
+let quantity = 5;
+
+let total = price * quantity;
+
+console.log(total);
+
+Step-by-step:
+
+price = 100
+quantity = 5
+
+Then:
+
+price * quantity
+
+means:
+
+100 × 5
+
+Output:
+
+500
+16. Ek variable ki value dusre variable me
+let firstName = "Imam";
+
+let userName = firstName;
+
+console.log(userName);
+
+Output:
+
+Imam
+
+Kyunki:
+
+firstName
+
+ke andar:
+
+Imam
+
+stored tha.
+
+17. Variable naming rules
+
+Ye bahut important hain.
+
+Rule 1: Variable name letter se start kar sakta hai
+
+✅ Correct:
+
+let age = 21;
+let name = "Imam";
+Rule 2: $ se start kar sakta hai
+let $price = 100;
+
+✅ Valid.
+
+Rule 3: _ se start kar sakta hai
+let _name = "Imam";
+
+✅ Valid.
+
+18. Number se variable start nahi kar sakte
+
+❌ Wrong:
+
+let 1name = "Imam";
+
+✅ Correct:
+
+let name1 = "Imam";
+
+Numbers variable ke beech/last me ho sakte hain:
+
+let user1 = "Imam";
+let user2 = "Ali";
+19. Variable name me spaces nahi ho sakte
+
+❌ Wrong:
+
+let first name = "Imam";
+
+JavaScript confuse ho jayega ki first aur name kya hain.
+
+Correct:
+
+let firstName = "Imam";
+
+Is style ko camelCase kehte hain.
+
+20. camelCase kya hota hai?
+
+JavaScript me variable names generally camelCase me likhe jate hain.
+
+Example:
+
+let firstName;
+
+Do words:
+
+first + name
+
+First word lowercase:
+
+first
+
+Next word ka first letter capital:
+
+Name
+
+Final:
+
+firstName
+
+Examples:
+
+let userAge = 21;
+
+let totalPrice = 500;
+
+let firstName = "Imam";
+
+let isUserLoggedIn = true;
+
+Ye JavaScript me recommended naming convention hai.
+
+21. Special characters allowed nahi hain
+
+Generally:
+
+❌
+
+let user-name = "Imam";
+
+❌
+
+let user@name = "Imam";
+
+❌
+
+let price% = 100;
+
+Use letters, numbers, $, _.
+
+22. Reserved keywords variable name nahi ho sakte
+
+JavaScript ke kuch words already language ke liye reserved hain.
+
+Example:
+
+let
+const
+var
+if
+else
+function
+return
+
+Isliye:
+
+let let = 20;
+
+❌ Invalid.
+
+Similarly:
+
+let const = 100;
+
+❌ Invalid.
+
+23. JavaScript case-sensitive hai
+
+Very important.
+
+let age = 21;
+
+Aur:
+
+let Age = 50;
+
+Ye dono different variables hain.
+
+Example:
+
+let age = 21;
+let Age = 50;
+
+console.log(age);
+console.log(Age);
+
+Output:
+
+21
+50
+
+Because:
+
+age ≠ Age
+
+JavaScript capital aur small letters ko different maanta hai.
+
+24. Variable ka meaningful naam rakho
+
+Technically ye valid hai:
+
+let x = 21;
+
+Lekin agar 21 age hai toh better:
+
+let age = 21;
+
+Bad:
+
+let a = 5000;
+
+Better:
+
+let salary = 5000;
+
+Bad:
+
+let abc = "Imam";
+
+Better:
+
+let userName = "Imam";
+
+Code ko readable banana bahut important hai.
+
+25. Ek line me multiple variables
+
+Possible hai:
+
+let name = "Imam", age = 31, city = "Riyadh";
+
+Lekin beginner ke liye better:
+
+let name = "Imam";
+let age = 31;
+let city = "Riyadh";
+
+Zyada readable hai.
+
+26. let ko value ke bina bana sakte hain
+let age;
+
+Valid.
+
+Ab:
+
+console.log(age);
+
+Output:
+
+undefined
+
+Baad me:
+
+age = 21;
+
+Ab:
+
+console.log(age);
+
+Output:
+
+21
+27. const ko value ke bina nahi bana sakte
+
+Ye:
+
+const age;
+
+❌ Error.
+
+Because const ko create karte waqt value dena compulsory hai.
+
+Correct:
+
+const age = 21;
+28. Kab let aur kab const?
+
+Simple rule yaad rakho:
+
+const
+
+Agar variable ko reassign nahi karna:
+
+const name = "Imam";
+let
+
+Agar value change hone wali hai:
+
+let score = 0;
+
+score = 10;
+score = 20;
+
+Modern developers generally const by default use karte hain.
+
+Aur jab pata ho value change hogi tab:
+
+let
+
+use karte hain.
+
+29. Real example: Game score
+
+Game start:
+
+let score = 0;
+
+Player points kamata hai:
+
+score = 10;
+
+Aur:
+
+score = 20;
+
+Yaha let perfect hai because value change ho rahi hai.
+
+30. Real example: Birth date
+const birthYear = 1995;
+
+Birth year generally change nahi hoga.
+
+Toh const suitable hai.
+
+31. Real example: Shopping cart
+let productPrice = 500;
+let quantity = 3;
+
+let totalPrice = productPrice * quantity;
+
+console.log(totalPrice);
+
+Output:
+
+1500
+32. String ke saath variable
+let firstName = "Imam";
+let lastName = "Haque";
+
+console.log(firstName);
+
+Output:
+
+Imam
+
+Hum variables combine bhi kar sakte hain:
+
+console.log(firstName + " " + lastName);
+
+Output:
+
+Imam Haque
+33. Variable ki value update karna
+let money = 100;
+
+Ab 50 aur add karna hai:
+
+money = money + 50;
+
+Step:
+
+Current money = 100
+
+money + 50
+100 + 50
+150
+
+Then:
+
+money = 150
+
+Output:
+
+console.log(money);
+150
+34. Shortcut
+
+Instead of:
+
+money = money + 50;
+
+hum likh sakte hain:
+
+money += 50;
+
+Same result.
+
+Similarly:
+
+money -= 20;
+
+means:
+
+money = money - 20;
+35. Variable aur console.log()
+
+console.log() screen/console me value check karne ke kaam aata hai.
+
+Example:
+
+let age = 21;
+
+console.log(age);
+
+Output:
+
+21
+
+Lekin:
+
+console.log("age");
+
+Output:
+
+age
+
+Why?
+
+Difference dekho:
+
+console.log(age);
+
+→ variable age ki value print karo.
+
+While:
+
+console.log("age");
+
+→ text "age" print karo.
+
+Ye beginners ki bahut common mistake hai.
+
+36. Important difference
+let name = "Lydia";
+
+Yaha:
+
+name
+
+variable hai.
+
+Aur:
+
+"Lydia"
+
+string/value hai.
+
+Agar likhoge:
+
+let name = Lydia;
+
+JavaScript sochega Lydia koi variable hai.
+
+Agar Lydia variable defined nahi hai toh:
+
+ReferenceError
+
+aayega.
+
+Correct:
+
+let name = "Lydia";
+37. Basic scope concept
+
+Abhi sirf basic samjho.
+
+Agar variable { } ke andar let se banaya:
+
+{
+  let age = 21;
+}
+
+Generally wo us block ke andar available hai.
+
+Example:
+
+{
+  let age = 21;
+  console.log(age);
+}
+
+✅ 21
+
+Lekin:
+
+{
+  let age = 21;
+}
+
+console.log(age);
+
+❌ Error.
+
+Isko block scope kehte hain.
+
+let aur const block scoped hain.
+
+Ye concept functions aur conditions padhte waqt aur deeply samjhenge.
+
+38. var me problem kya hai?
+
+Example:
+
+{
+  var age = 21;
+}
+
+console.log(age);
+
+Output:
+
+21
+
+var block scope ko let/const jaise follow nahi karta.
+
+Isi wajah se modern JS me generally:
+
+let
+const
+
+prefer kiye jate hain.
+
+39. Hoisting ka ek basic idea
+
+Abhi sirf naam yaad rakho — Hoisting.
+
+Agar:
+
+console.log(name);
+
+var name = "Lydia";
+
+Toh behaviour beginners ko strange lag sakta hai.
+
+var declarations hoist hoti hain.
+
+Lekin:
+
+console.log(age);
+
+let age = 21;
+
+error deta hai.
+
+Isi topic ko functions ke saath detail me karenge, especially tumhare ye code me:
+
+function sayHi() {
+  console.log(name);
+  console.log(age);
+
+  var name = "Lydia";
+  let age = 21;
+}
+
+Isme variable concepts + scope + hoisting + Temporal Dead Zone sab involved hain.
+
+Pehle variable strong hona zaroori hai.
+
+40. Complete example
+const userName = "Imam";
+let age = 30;
+let score = 0;
+
+console.log(userName);
+console.log(age);
+console.log(score);
+
+age = 31;
+score = score + 10;
+
+console.log(age);
+console.log(score);
+
+Step-by-step:
+
+Initially:
+
+userName → Imam
+age → 30
+score → 0
+
+Then:
+
+age = 31;
+
+Now:
+
+age → 31
+
+Then:
+
+score = score + 10;
+
+means:
+
+0 + 10 = 10
+
+Now:
+
+score → 10
+
+Final output:
+
+Imam
+30
+0
+31
+10
+Variable ka complete summary
+
+Yaad rakhne ke liye:
+
+VARIABLE
+   ↓
+Value ko naam dekar store karna
+   ↓
+var / let / const
+
+Modern JS:
+
+const → value ko reassign nahi karna
+let   → value change hogi
+var   → old style, generally avoid
+
+Basic syntax:
+
+let age = 21;
+
+Meaning:
+
+let   → variable declare karo
+age   → variable ka naam
+=     → assign karo
+21    → value
+;     → statement end
+
+Naming:
+
+let firstName = "Imam";   ✅
+let age2 = 21;            ✅
+let _age = 21;            ✅
+let $price = 100;         ✅
+
+let 2age = 21;            ❌
+let first name = "Imam";  ❌
+let user-name = "Imam";   ❌
+Sabse important 7 rules
+Variable value ko store karta hai.
+= assignment operator hai.
+let ki value change kar sakte hain.
+const ko reassign nahi kar sakte.
+Modern JS me var se zyada let aur const use karo.
+Variable name number se start nahi ho sakta.
+JavaScript case-sensitive hai: age aur Age different hain.
+Ab 5 basic checking questions
+
+Q1. Is code me variable ka naam kya hai?
+
+let age = 25;
+
+A. let
+B. age
+C. 25
+D. =
+
+Q2. Agar value future me change honi hai toh kya use karna better hai?
+
+A. let
+B. const
+C. console
+D. function
+
+Q3. Kaunsa variable name invalid hai?
+
+A. userName
+B. _age
+C. age2
+D. 2age
+
+Q4. Output kya hoga?
+
+let score = 10;
+score = 20;
+
+console.log(score);
+
+A. 10
+B. 20
+C. Error
+D. undefined
+
+Q5. Iska output kya hoga?
+
+let age = 21;
+
+console.log("age");
+
+A. 21
+B. age
+C. undefined
+D. Error
+
+Tum bas answers aise do: 1-B, 2-A, 3-D.... Uske baad main variable ke next important concept var vs let vs const + scope + hoisting ko visual examples ke saath ekdum basic se karwaunga.</P>--> 
+</body>
+<script>
+    let welcomeMesasge = 'hello friends'
+    console.log('hello friends');
+    console.log(welcomeMesasge);
+</script>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>json practices</title>
+</head>
+<body>
+    <script>
+       // 1. JSON kya hota hai?
+
+//JSON ek data format hai.
+
+//Simple language me:
+
+//JSON data ko ek proper structured format me likhne ka tarika hai, jise humans bhi easily padh sakte hain aur computers bhi easily samajh sakte hain.
+
+ /*{
+  "name": "Rahul",
+  "age": 22,
+  "city": "Delhi"
+}*/ 
+//Yahan humne ek person ka data JSON format me rakha hai.
+
+
+
+//2. JSON JavaScript Object jaisa dikhta hai
+
+//JavaScript Object:
+
+/*let student = {
+  name: "Rahul",
+  age: 22,
+  city: "Delhi"
+};*/ 
+//json
+/*{
+  "name": "Rahul",
+  "age": 22,
+  "city": "Delhi"
+}*/ 
+
+/*5. JSON me kis type ki values aa sakti hain?
+
+JSON me mainly ye values allowed hain:
+
+String
+Number
+Boolean
+Array
+Object
+null
+
+Example:
+
+{
+  "name": "Rahul",
+  "age": 22,
+  "isStudent": true,
+  "subjects": ["HTML", "CSS", "JavaScript"],
+  "address": {
+    "city": "Delhi",
+    "pin": 110001
+  },
+  "middleName": null
+}
+
+Yahan different data types hain.*/  
+
+//7. JSON.parse() kya karta hai?
+
+//JSON.parse():
+
+//JSON string ko JavaScript Object me convert karta hai.
+
+//Example:
+
+//let data = '{"name":"Rahul","age":22}';
+
+//let user = JSON.parse(data);
+
+//console.log(user);
+//console.log(user.name);
+
+
+
+/*let jsondata = '{"name":"aman", "age":24, "city": "delhi"}';
+let student = JSON.parse(jsondata);
+console.log(student);
+console.log(student.name);*/ 
+
+
+//8. JSON.stringify() kya karta hai?
+
+//Ab iska opposite samjho.
+
+//Agar JavaScript Object ko JSON string banana ho to use karte hain:
+
+
+/*let student = {
+    name: "masoom",
+    age: 23,
+} 
+let jsondata = JSON.stringify(student);
+console.log(jsondata);
+console.log(typeof jsondata);*/ 
+
+
+
+
+//10. Complete example
+/*let user = {
+  name: "Aman",
+  age: 21
+};
+
+let jsonData = JSON.stringify(user);
+
+console.log(jsonData);
+
+let newUser = JSON.parse(jsonData);
+
+console.log(newUser.name);*/ 
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>annonymous vs value all concepts</title>
+</head>
+<body>
+    <script>
+       /* Bilkul. JavaScript me anonymous function aur function as a value bahut important concept hai. Main bilkul basic se simple Hinglish me samjhata hoon.
+
+Sabse pehle normal function samjho:
+
+function greet() {
+  console.log("Hello");
+}
+
+greet();
+
+Yahan greet function ka naam hai.
+
+Anonymous ka matlab hota hai jiska naam na ho.
+
+Example:
+
+function () {
+  console.log("Hello");
+}
+
+Ye anonymous function hai kyunki function ke baad koi naam nahi hai.
+
+Lekin JavaScript me sirf aise anonymous function likh dena usually useful nahi hota:
+
+function () {
+  console.log("Hello");
+}
+
+Isliye hum anonymous function ko kisi variable me store kar dete hain:
+
+let greet = function () {
+  console.log("Hello");
+};
+
+Ab dhyaan se samjho:
+
+let greet = function () {
+  console.log("Hello");
+};
+
+Isko parts me todte hain.
+
+let greet
+
+Ek variable bana.
+
+=
+
+Us variable ke andar value assign karenge.
+
+function () {
+  console.log("Hello");
+}
+
+Ye ek anonymous function hai.
+
+To overall:
+
+let greet = function () {
+  console.log("Hello");
+};
+
+ka matlab:
+
+greet naam ke variable ke andar ek anonymous function store kar diya.
+
+Ab function ko call kar sakte hain:
+
+greet();
+
+Output:
+
+Hello
+
+Yahin se function as a value ka concept aata hai.
+
+JavaScript me function sirf code ka block nahi hota. Function ko JavaScript ek value ki tarah bhi treat karta hai.
+
+Jaise:
+
+let age = 20;
+
+Yahan 20 ek value hai.
+
+let name = "Ali";
+
+Yahan "Ali" ek value hai.
+
+Waise hi:
+
+let greet = function () {
+  console.log("Hello");
+};
+
+Yahan poora function bhi ek value hai.
+
+Isliye JavaScript me hum function ko variable ke andar store kar sakte hain.
+
+Ek simple comparison
+let x = 10;
+
+x ke andar number value hai.
+
+let x = "Hello";
+
+x ke andar string value hai.
+
+Aur:
+
+let x = function () {
+  console.log("Hello");
+};
+
+x ke andar function value hai.
+
+Ab:
+
+x();
+
+Output:
+
+Hello
+
+Ye JavaScript ki ek special property hai jise generally first-class functions kaha jata hai.
+
+Simple language me:
+
+JavaScript me function ko bhi number, string, object ki tarah value ki tarah use kar sakte hain.
+
+Function ko hum:
+
+variable me store kar sakte hain
+doosre function ko argument me de sakte hain
+function se return kar sakte hain
+object ki property me rakh sakte hain
+
+Abhi pehle variable wala concept strong karte hain.
+
+Named function vs Anonymous function
+
+Named function:
+
+function add() {
+  console.log(2 + 3);
+}
+
+Yahan function ka naam:
+
+add
+
+Anonymous function:
+
+function () {
+  console.log(2 + 3);
+}
+
+Iska koi naam nahi.
+
+Lekin ise variable me store kar diya:
+
+let add = function () {
+  console.log(2 + 3);
+};
+
+Ab add variable ke through function call hoga:
+
+add();
+
+Output:
+
+5
+
+Ek important confusion yahan hota hai.
+
+Is code me:
+
+let add = function () {
+  console.log(2 + 3);
+};
+
+add technically function ka original naam nahi hai.
+
+add ek variable hai jiske andar anonymous function store hai.
+
+Visualise karo:
+
+add
+ ↓
+function () {
+    console.log(2 + 3);
+}
+Function Expression
+
+Ye syntax:
+
+let greet = function () {
+  console.log("Hello");
+};
+
+ko function expression kehte hain.
+
+Function expression ka common structure:
+
+let variableName = function () {
+  // code
+};
+
+Example:
+
+let multiply = function (a, b) {
+  return a * b;
+};
+
+console.log(multiply(4, 5));
+
+Step by step:
+
+let multiply
+
+Variable bana.
+
+function (a, b)
+
+Anonymous function bana jisme a aur b parameters hain.
+
+return a * b;
+
+Result return karega.
+
+multiply(4, 5)
+
+Function call hua.
+
+So:
+
+a = 4
+b = 5
+
+4 × 5 = 20
+
+Output:
+
+20
+Function ko value ki tarah copy bhi kar sakte hain
+
+Dekho:
+
+let greet = function () {
+  console.log("Hello");
+};
+
+let anotherGreet = greet;
+
+Ab:
+
+greet();
+
+Output:
+
+Hello
+
+Aur:
+
+anotherGreet();
+
+Output bhi:
+
+Hello
+
+Kyun?
+
+Kyuki:
+
+let anotherGreet = greet;
+
+me greet ke andar jo function value thi, woh anotherGreet ko bhi mil gayi.
+
+Conceptually:
+
+greet -----------→ function
+                     |
+anotherGreet -----→ |
+
+Dono same function ko access kar rahe hain.
+
+greet aur greet() me bahut bada difference hai
+
+Ye beginners ke liye bahut important hai.
+
+greet
+
+ka matlab:
+
+function ki value/reference.
+
+Lekin:
+
+greet()
+
+ka matlab:
+
+function ko abhi execute/call karo.
+
+Example:
+
+let greet = function () {
+  console.log("Hello");
+};
+
+Agar:
+
+console.log(greet);
+
+karoge, function itself dikhega.
+
+Lekin:
+
+greet();
+
+karoge to function execute hoga:
+
+Hello
+
+Yaad rakho:
+
+greet     → function itself
+greet()   → function ko run karo
+Anonymous function ka real use
+
+Anonymous functions bahut jagah milenge.
+
+Example:
+
+setTimeout(function () {
+  console.log("Hello");
+}, 2000);
+
+Yahan:
+
+function () {
+  console.log("Hello");
+}
+
+anonymous function hai.
+
+Isse kisi variable me store nahi kiya. Directly setTimeout ko de diya.
+
+Matlab:
+
+2 second baad ye function run karna.
+
+Isi tarah events me:
+
+button.addEventListener("click", function () {
+  console.log("Button clicked");
+});
+
+Yahan bhi anonymous function use hua.
+
+Arrow function se relation
+
+Baad me tum ye syntax bhi dekhoge:
+
+let greet = () => {
+  console.log("Hello");
+};
+
+Ye bhi function expression ka modern form hai.
+
+Compare:
+
+let greet = function () {
+  console.log("Hello");
+};
+
+Arrow function:
+
+let greet = () => {
+  console.log("Hello");
+};
+
+Dono basic example me similar kaam kar rahe hain.
+
+Abhi ke liye arrow function ko side me rakho. Pehle anonymous function aur function-as-value strong karo.
+
+Short summary
+function greet() {}
+
+→ Named function
+
+function () {}
+
+→ Anonymous function
+
+let greet = function () {};
+
+→ Anonymous function ko variable me store kiya
+→ Isko function expression kehte hain
+
+Aur:
+
+let greet = function () {};
+
+ye prove karta hai ki JavaScript me:
+
+function bhi ek value ho sakta hai.*/
+    </script>
+</body>
+</html>

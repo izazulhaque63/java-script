@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>date all concept</title>
+</head>
+<body>
+    <script>
+       /* JavaScript me Date ek built-in object hota hai jo date aur time ko create, read, compare aur modify karne ke kaam aata hai.
+
+Simple example:
+
+let today = new Date();
+
+console.log(today);
+
+Ye current date aur time dega.
+
+Date object ka syntax
+new Date()
+
+new Date() ek Date object banata hai.
+
+Example:
+
+let currentDate = new Date();
+
+console.log(currentDate);
+
+Isme current:
+
+year
+month
+date
+day
+hour
+minute
+second
+
+sab information hoti hai.
+
+Date se alag-alag information kaise nikale?
+let today = new Date();
+
+console.log(today.getFullYear());
+
+Year milega.
+
+console.log(today.getMonth());
+
+Month milega.
+
+Lekin ek important baat:
+
+January   = 0
+February  = 1
+March     = 2
+...
+December  = 11
+
+Matlab getMonth() 0 se start hota hai.
+
+Example agar August hai:
+
+today.getMonth()
+
+result hoga:
+
+7
+
+August 8th month hai, lekin JavaScript me indexing 0 se start hoti hai.
+
+Date nikalna
+console.log(today.getDate());
+
+Ye month ki actual date deta hai.
+
+Jaise:
+
+25
+
+Dhyan do:
+
+getDate()
+
+aur
+
+getDay()
+
+alag hain.
+
+getDate() = month ki date.
+
+Example:
+
+25
+
+getDay() = week ka day.
+
+Sunday    = 0
+Monday    = 1
+Tuesday   = 2
+Wednesday = 3
+Thursday  = 4
+Friday    = 5
+Saturday  = 6
+
+Example:
+
+console.log(today.getDay());
+
+Agar Tuesday hai to output:
+
+2
+Time kaise nikale?
+let today = new Date();
+
+console.log(today.getHours());
+console.log(today.getMinutes());
+console.log(today.getSeconds());
+
+Example:
+
+16
+30
+25
+
+Matlab:
+
+4:30:25 PM
+
+getHours() 24-hour format me hota hai.
+
+Ek specific date banana
+
+Tum apni date bhi create kar sakte ho:
+
+let birthday = new Date("2000-05-10");
+
+console.log(birthday);
+
+Ye May 10, 2000 ki date represent karega.
+
+Dusra syntax:
+
+let date = new Date(2026, 7, 25);
+
+Yahan:
+
+2026 → year
+7    → August
+25   → date
+
+Month me fir se yaad rakho:
+
+7 = August
+
+kyunki month 0 se start hota hai.
+
+Date ko modify bhi kar sakte hain
+
+Example:
+
+let date = new Date();
+
+date.setFullYear(2030);
+
+console.log(date);
+
+Year 2030 ho jayega.
+
+Month change:
+
+date.setMonth(11);
+
+11 means December.
+
+Date change:
+
+date.setDate(20);
+
+Month ki date 20 ho jayegi.
+
+Common Date methods
+Method	Kaam
+getFullYear()	Year nikalta hai
+getMonth()	Month nikalta hai, 0–11
+getDate()	Month ki date nikalta hai
+getDay()	Week ka day nikalta hai
+getHours()	Hours
+getMinutes()	Minutes
+getSeconds()	Seconds
+setFullYear()	Year change karta hai
+setMonth()	Month change karta hai
+setDate()	Date change karta hai
+Practical example
+let today = new Date();
+
+let year = today.getFullYear();
+let month = today.getMonth() + 1;
+let date = today.getDate();
+
+console.log(`${date}/${month}/${year}`);
+
+getMonth() + 1 kyu kiya?
+
+Kyunki:
+
+January = 0
+
+isliye actual month number ke liye +1 karte hain.
+
+Agar date August 25, 2026 hai to result:
+
+25/8/2026
+Sabse important yaad rakho
+let today = new Date();
+
+current date/time.
+
+today.getFullYear()
+
+year.
+
+today.getMonth()
+
+month 0-11.
+
+today.getDate()
+
+month ki date.
+
+today.getDay()
+
+week ka day 0-6.
+
+Ab 3 basic questions
+
+Q1. Current date aur time ke liye kya likhenge?
+
+A. new Time()
+B. new Date()
+C. Date.current()
+
+Q2. getMonth() me January ki value kya hoti hai?
+
+A. 1
+B. 0
+C. 12
+
+Q3. getDate() kya deta hai?
+
+A. Month ki date
+B. Week ka day
+C. Year
+
+Answer 1-?, 2-?, 3-? me do. */
+    </script>
+</body>
+</html>
